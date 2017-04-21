@@ -25,8 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Log.d("click","opcion del menu");
-        return super.onOptionsItemSelected(item);
+
+        if(item.getItemId() == R.id.opcion1) {
+            Log.d("click", "opcion del menu");
+            return super.onOptionsItemSelected(item);
+        }
+        return false;
 
     }
 }
