@@ -80,7 +80,7 @@
                 android:layout_weight="0.7"
                 android:hint="Mail"
                 android:textSize="15dp"
-                android:inputType="textPassword"
+                android:inputType="textEmailAddress"
                 />
         </LinearLayout>
 
