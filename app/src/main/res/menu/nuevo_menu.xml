@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
-    <item android:id="@+id/opcion1" android:title="Cafe/Bebidas 1"  app:showAsAction="always" >
-        </item>
-    <item android:id="@+id/opcion2" android:title="Menu´s" app:showAsAction="always">
+    <item android:id="@+id/VerPedido" android:title="Ver Pedido Actual" >
     </item>
-    <item android:id="@+id/opcion3" android:title="Snacks" app:showAsAction="always">
+    <item android:id="@+id/LogOut" android:title="LogOut" >
+    </item>
+    <item android:id="@+id/cafe" android:title="Cafe/Bebidas 1"  app:showAsAction="always" >
+        </item>
+    <item android:id="@+id/menu" android:title="Menu´s" app:showAsAction="always">
+    </item>
+    <item android:id="@+id/snacks" android:title="Snacks" app:showAsAction="always">
     </item>
 
 

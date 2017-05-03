@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <item android:id="@+id/enviar" android:title="Enviar pedido" >
+    </item>
+    <item android:id="@+id/VerPedido2" android:title="Limpiar Pedido" >
+    </item>
+    <item android:id="@+id/LogOut2" android:title="LogOut" >
+    </item>
+
+</menu>
