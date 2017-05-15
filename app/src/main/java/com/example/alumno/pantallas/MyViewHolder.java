@@ -2,6 +2,7 @@ package com.example.alumno.pantallas;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -12,6 +13,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
 
     TextView tvNombre;
     TextView tvPrecio;
+    ImageView ivImagen;
+
 
     public MyViewHolder(View itemView)
     {
@@ -19,6 +22,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         tvNombre = (TextView) itemView.findViewById(R.id.tvNombre);
         tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecio);
+        ivImagen = (ImageView) itemView.findViewById(R.id.IVimagen);
     }
 
 }

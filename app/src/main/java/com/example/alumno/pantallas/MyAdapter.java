@@ -1,5 +1,7 @@
 package com.example.alumno.pantallas;
 
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +16,14 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
 
-    List<Pedido> ListaPedidos;
+    List<Producto> listaProductos;
 
-    public MyAdapter(List<Pedido> lista)
+
+    public MyAdapter(List<Producto> lista)
+
     {
-        this.ListaPedidos = lista;
+        this.listaProductos = lista;
+
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,14 +36,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Pedido p = ListaPedidos.get(position);
+        Producto p = listaProductos.get(position);
         holder.tvNombre.setText(p.getNombre());
         holder.tvPrecio.setText(""+p.getPrecio()+"$");
+        holder.ivImagen.setImageResource(p.getRuta());
+
 
     }
 
     @Override
     public int getItemCount() {
-        return this.ListaPedidos.size();
+        return this.listaProductos.size();
     }
 }

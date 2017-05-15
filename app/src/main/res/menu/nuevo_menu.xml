@@ -8,7 +8,7 @@
     </item>
     <item android:id="@+id/LogOut" android:title="LogOut" >
     </item>
-    <item android:id="@+id/cafe" android:title="Cafe/Bebidas 1"  app:showAsAction="always" >
+    <item android:id="@+id/bebida" android:title="Cafe/Bebidas 1"  app:showAsAction="always" >
         </item>
     <item android:id="@+id/menu" android:title="Menu´s" app:showAsAction="always">
     </item>

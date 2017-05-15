@@ -1,49 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1"
+    >
 
-    <ImageView
-        android:layout_height="66dp"
-        android:layout_width="66dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/Image"
 
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+        <ImageView
+              android:layout_height="66dp"
+              android:layout_width="66dp"
 
-        >
+              android:id="@+id/IVimagen"
+            android:layout_gravity="center"
+              />
         <TextView
             android:id="@+id/tvNombre"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Nombre"
             android:textSize="20dp"
-            android:layout_gravity="top"
+            android:layout_gravity="center"
+
+
             />
         <TextView
             android:id="@+id/tvPrecio"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:text="Precio"
             android:textSize="20dp"
-            android:layout_marginTop="18dp"
+            android:layout_gravity="center"
             />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
+            android:text="X"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            />
 
+        </TableRow>
 
-            android:paddingTop="@dimen/activity_vertical_margin"
+    <TableRow
+        android:id="@+id/SeparadorCabecera"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-
-            android:text="X" />
-
-
-    </LinearLayout>
-</LinearLayout>
+        <FrameLayout
+            android:id="@+id/LineaCabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:layout_span="6"
+            android:background="#FFFFFF" >
+        </FrameLayout>
+    </TableRow>
+</TableLayout>

@@ -17,10 +17,10 @@ public class Pedidos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        List<Pedido> listaPedido = new ArrayList<Pedido>();
-        listaPedido.add(new Pedido("Pizza",(int) 30.5));
-        listaPedido.add(new Pedido("Pizza",(int) 30.5));
-        listaPedido.add(new Pedido("Pizza",(int) 30.5));
+        List<Producto> listaProducto = new ArrayList<Producto>();
+        listaProducto.add(new Producto("Pizza",(int) 30.5));
+        listaProducto.add(new Producto("Pizza",(int) 30.5));
+        listaProducto.add(new Producto("Pizza",(int) 30.5));
 
 
 
@@ -28,7 +28,7 @@ public class Pedidos extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
-        MyAdapter adapter = new MyAdapter(listaPedido);
+        MyAdapter adapter = new MyAdapter(listaProducto);
         rv.setAdapter(adapter);
     }
     @Override
@@ -40,7 +40,7 @@ public class Pedidos extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
-        if(item.getItemId() == R.id.cafe) {
+        if(item.getItemId() == R.id.bebida) {
             Log.d("click", "opcion del menu");
 
             return super.onOptionsItemSelected(item);
