@@ -12,6 +12,13 @@ public class Persona {
     private String mail;
     private String clave;
 
+    public Persona(String mail, String clave)
+    {
+
+        this.mail = mail;
+        this.clave = clave;
+    }
+
     public Persona(String nombre, String apellido, int dni,String mail, String clave)
     {
         this.nombre = nombre;
@@ -19,6 +26,16 @@ public class Persona {
         this.dni = dni;
         this.mail = mail;
         this.clave = clave;
+    }
+
+    public String getMail()
+    {
+        return this.mail;
+    }
+
+    public String getClave()
+    {
+        return this.clave;
     }
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,19 +23,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        List<Persona> lista = new ArrayList<>();
         EditText tvMail =(EditText) findViewById(R.id.EditMailLogin);
         tvMail.setText("sebas@live.com.ar");
 
         EditText editClave =(EditText) findViewById(R.id.editClave);
         editClave.setText("asdasd");
 
-        Button btn = (Button) findViewById(R.id.btnRegistro);
+        String clave = editClave.getText().toString();
+        String mail = tvMail.getText().toString();
 
-        MyListener listener = new MyListener(this);
+        Persona persona = new Persona("sebita@live.com.ar" , clave);
+        Persona persona2 = new Persona(mail , clave);
+        lista.add(persona);
+
+        Button btn = (Button) findViewById(R.id.btnRegistro);
+        Button btn2 = (Button) findViewById(R.id.btnIngresar);
+        MyListener listener = new MyListener(this,lista,persona2);
        btn.setOnClickListener((View.OnClickListener) listener);
+        btn2.setOnClickListener((View.OnClickListener) listener);
 
 
     }
+
 
   /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
