@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class Menu extends AppCompatActivity{
         Button btn = (Button) findViewById(R.id.btnEnviarPedido);
         MyListener listener = new MyListener(this);
         btn.setOnClickListener((View.OnClickListener)listener);
+
 
     }
 
@@ -41,9 +43,7 @@ public class Menu extends AppCompatActivity{
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         List<Producto> listaProducto = new ArrayList<Producto>();
-        List<Producto> listaProducto2 = new ArrayList<Producto>();
-        List<Producto> listaProducto3 = new ArrayList<Producto>();
-
+        MyAdapter adapter = null;
         if(item.getItemId() == R.id.menu) {
             Log.d("MENU", "opcion del menu");
 
@@ -54,7 +54,7 @@ public class Menu extends AppCompatActivity{
             listaProducto.add(new Producto("Empanadas",(int) 300,R.drawable.empanadas));
 
 
-            MyAdapter adapter = new MyAdapter(listaProducto);
+            adapter = new MyAdapter(listaProducto);
             rv.setAdapter(adapter);
             return super.onOptionsItemSelected(item);
 
@@ -64,12 +64,12 @@ public class Menu extends AppCompatActivity{
         if(item.getItemId() == R.id.bebida) {
             Log.d("BEBIDA", "opcion del menu");
 
-            listaProducto2.add(new Producto("Sprite",(int) 40,R.drawable.sprite));
-            listaProducto2.add(new Producto("Coca Cola",(int) 50,R.drawable.cocacola));
-            listaProducto2.add(new Producto("Heineken",(int) 60,R.drawable.heineken));
+            listaProducto.add(new Producto("Sprite",(int) 40,R.drawable.sprite));
+            listaProducto.add(new Producto("Coca Cola",(int) 50,R.drawable.cocacola));
+            listaProducto.add(new Producto("Heineken",(int) 60,R.drawable.heineken));
 
 
-            MyAdapter adapter = new MyAdapter(listaProducto2);
+            adapter = new MyAdapter(listaProducto);
             rv.setAdapter(adapter);
             return super.onOptionsItemSelected(item);
 
@@ -79,14 +79,14 @@ public class Menu extends AppCompatActivity{
         if(item.getItemId() == R.id.snacks) {
 
             Log.d("snacks", "opcion del menu");
-            listaProducto3.add(new Producto("Chizitos",(int) 30,R.drawable.chizitos));
-            listaProducto3.add(new Producto("Palitos",(int) 30,R.drawable.palitos));
-            listaProducto3.add(new Producto("Nachos con Cheddar",(int) 60,R.drawable.nachos));
-            listaProducto3.add(new Producto("Snacks",(int) 30,R.drawable.snacks));
+            listaProducto.add(new Producto("Chizitos",(int) 30,R.drawable.chizitos));
+            listaProducto.add(new Producto("Palitos",(int) 30,R.drawable.palitos));
+            listaProducto.add(new Producto("Nachos con Cheddar",(int) 60,R.drawable.nachos));
+            listaProducto.add(new Producto("Snacks",(int) 30,R.drawable.snacks));
 
 
 
-            MyAdapter adapter = new MyAdapter(listaProducto3);
+            adapter = new MyAdapter(listaProducto);
             rv.setAdapter(adapter);
             return super.onOptionsItemSelected(item);
 

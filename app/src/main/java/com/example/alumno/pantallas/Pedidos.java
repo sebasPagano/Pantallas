@@ -52,18 +52,15 @@ public class Pedidos extends AppCompatActivity {
             Log.d("click", "opcion del menu");
             intent.setClass(this, MainActivity.class);
             startActivity(intent);
-
             return super.onOptionsItemSelected(item);
 
-
         }
-        if(item.getItemId() == R.id.LogOut2) {
 
-            return super.onOptionsItemSelected(item);
-        }
         if(item.getItemId() == R.id.AceptarPedido) {
             MiDialogo di = new MiDialogo();
             di.show(getFragmentManager(),"cualquierCosa");
+
+
             return super.onOptionsItemSelected(item);
         }
 

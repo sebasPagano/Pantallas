@@ -53,12 +53,9 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
         }
         if(v.getId() == R.id.btnQuitarProducto)
         {
-
             Log.d("Hizo click en el producto",this.position+" - "+this.producto.getNombre());
             listaProducto.remove(this.getLayoutPosition());
             adapter.notifyDataSetChanged();
-            
-
         }
 
 
@@ -71,6 +68,11 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
     {
         return listaProducto;
     }
+    public static void setlista(List<Producto> lista )
+    {
+        listaProducto = lista;
+    }
+
 
 
 

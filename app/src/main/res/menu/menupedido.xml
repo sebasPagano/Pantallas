@@ -5,8 +5,6 @@
     >
     <item android:id="@+id/AceptarPedido" android:title="Enviar pedido" >
     </item>
-    <item android:id="@+id/VerPedido2" android:title="Limpiar Pedido" >
-    </item>
     <item android:id="@+id/LogOut2" android:title="LogOut" >
     </item>
 

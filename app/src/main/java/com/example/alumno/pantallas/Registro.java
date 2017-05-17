@@ -14,7 +14,7 @@ public class Registro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        Log.d("hola","AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
         List<Persona> listaPersonas = new ArrayList<>();
 
         Persona p1 = new Persona("Sebastian","Pagano",40253335,"seba@hotmail.com","asdasd");

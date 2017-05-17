@@ -23,7 +23,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
     Button btnAgregar;
     Producto producto;
     private static List<Producto>  listaProducto = new ArrayList<>();
-    int contador = 0;
+
 
 
 
@@ -37,6 +37,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
         tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecio);
         ivImagen = (ImageView) itemView.findViewById(R.id.IVimagen);
         btnAgregar = (Button) itemView.findViewById(R.id.btnAgregarProducto);
+
+
     }
 
 
@@ -44,7 +46,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     @Override
     public void onClick(View v) {
-      //  listener.onItemClick(position);
+
         Log.d("Hizo click en la vista","ASD");
         double suma = 0;
         if(v.getId() == R.id.btnAgregarProducto)
@@ -52,13 +54,14 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
             Log.d("Hizo click en el producto",this.producto.getNombre());
             listaProducto.add(this.producto);
+
         }
         for (Producto prod: listaProducto)
         {
             suma = suma + prod.getPrecio();
-
         }
         Log.d("Suma",""+suma);
+
 
 
 
@@ -69,7 +72,10 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
     }
 
 
-
+    public static int getcantidadlista()
+    {
+        return listaProducto.size();
+    }
 
     public void setPositionYProducto(int position,Producto producto)
     {
