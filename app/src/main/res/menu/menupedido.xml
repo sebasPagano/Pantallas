@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
-    <item android:id="@+id/enviar" android:title="Enviar pedido" >
+    <item android:id="@+id/AceptarPedido" android:title="Enviar pedido" >
     </item>
     <item android:id="@+id/VerPedido2" android:title="Limpiar Pedido" >
     </item>

@@ -24,7 +24,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
     Producto producto;
     private static List<Producto>  listaProducto = new ArrayList<>();
     int contador = 0;
-    private MyOnItemClick listener;
+
 
 
     private int position;

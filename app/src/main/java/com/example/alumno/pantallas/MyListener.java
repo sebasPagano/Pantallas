@@ -1,6 +1,7 @@
 package com.example.alumno.pantallas;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -19,12 +20,19 @@ public class MyListener implements View.OnClickListener {
     Activity a;
     List<Persona> listaPersonas;
     Persona personaIngresante;
+    FragmentManager fr;
 
     public MyListener(Activity ac)
     {
         this.a = ac;
 
     }
+    public MyListener(Activity ac,FragmentManager fm)
+    {
+        this.a = ac;
+        this.fr = fm;
+    }
+
 
 
     public MyListener(Activity ac,List<Persona> lista, Persona per)
@@ -51,6 +59,11 @@ public class MyListener implements View.OnClickListener {
             Context con = v.getContext();
             Intent i = new Intent(con, Pedidos.class);
             con.startActivity(i);
+        }
+        if(v.getId() == R.id.AceptarPedido2)
+        {
+            MiDialogo di = new MiDialogo();
+            di.show(this.fr,"asd");
         }
 
 

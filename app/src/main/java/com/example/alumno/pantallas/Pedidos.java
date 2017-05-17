@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,13 @@ public class Pedidos extends AppCompatActivity {
 
         MyAdapterPedidos adapter = new MyAdapterPedidos(listaProducto);
         rv.setAdapter(adapter);
+
+        Button btn = (Button) findViewById(R.id.AceptarPedido2);
+        MyListener listener = new MyListener(this,getFragmentManager());
+        btn.setOnClickListener((View.OnClickListener)listener);
+        /*MiDialogo di = new MiDialogo();
+        di.show(getFragmentManager(),"cualquierCosa");*/
+
     }
     @Override
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
@@ -51,9 +60,14 @@ public class Pedidos extends AppCompatActivity {
         if(item.getItemId() == R.id.LogOut2) {
 
             return super.onOptionsItemSelected(item);
-
-
         }
+        if(item.getItemId() == R.id.AceptarPedido) {
+            MiDialogo di = new MiDialogo();
+            di.show(getFragmentManager(),"cualquierCosa");
+            return super.onOptionsItemSelected(item);
+        }
+
+
 
 
         return false;
