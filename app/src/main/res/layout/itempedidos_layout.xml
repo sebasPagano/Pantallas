@@ -7,18 +7,18 @@
 
 
     <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
         <ImageView
-              android:layout_height="66dp"
-              android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_width="66dp"
 
-              android:id="@+id/IVimagen"
+            android:id="@+id/IVimagenPedido"
             android:layout_gravity="center"
-              />
+            />
         <TextView
-            android:id="@+id/tvNombre"
+            android:id="@+id/tvNombrePedido"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Nombre"
@@ -28,7 +28,7 @@
 
             />
         <TextView
-            android:id="@+id/tvPrecio"
+            android:id="@+id/tvPrecioPedido"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Precio"
@@ -37,7 +37,7 @@
             />
 
         <Button
-            android:id="@+id/btnAgregarProducto"
+            android:id="@+id/btnQuitarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="X"
@@ -45,10 +45,10 @@
             android:textSize="20sp"
             />
 
-        </TableRow>
+    </TableRow>
 
     <TableRow
-        android:id="@+id/SeparadorCabecera"
+        android:id="@+id/SeparadorCabecera2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 

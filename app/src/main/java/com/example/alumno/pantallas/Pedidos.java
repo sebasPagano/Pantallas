@@ -17,18 +17,13 @@ public class Pedidos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        List<Producto> listaProducto = new ArrayList<Producto>();
-        listaProducto.add(new Producto("Pizza",(int) 30.5));
-        listaProducto.add(new Producto("Pizza",(int) 30.5));
-        listaProducto.add(new Producto("Pizza",(int) 30.5));
-
-
+        List<Producto> listaProducto = MyViewHolderPedidos.getlista();
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
-        MyAdapter adapter = new MyAdapter(listaProducto);
+        MyAdapterPedidos adapter = new MyAdapterPedidos(listaProducto);
         rv.setAdapter(adapter);
     }
     @Override

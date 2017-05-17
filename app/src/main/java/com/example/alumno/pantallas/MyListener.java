@@ -20,11 +20,19 @@ public class MyListener implements View.OnClickListener {
     List<Persona> listaPersonas;
     Persona personaIngresante;
 
+    public MyListener(Activity ac)
+    {
+        this.a = ac;
+
+    }
+
+
     public MyListener(Activity ac,List<Persona> lista, Persona per)
     {
         this.a = ac;
         this.listaPersonas = lista;
         this.personaIngresante = per;
+
     }
 
 
@@ -32,28 +40,35 @@ public class MyListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        MainActivity m = new MainActivity();
+
         if(v.getId() == R.id.btnRegistro) {
             Context con = v.getContext();
             Intent i = new Intent(con, Registro.class);
             con.startActivity(i);
         }
-
-        for(Persona persona : listaPersonas)
+        if(v.getId() == R.id.btnEnviarPedido)
         {
-            if(persona.getMail().equals(this.personaIngresante.getMail()))
+            Context con = v.getContext();
+            Intent i = new Intent(con, Pedidos.class);
+            con.startActivity(i);
+        }
+
+
+        if(v.getId() == R.id.btnIngresar) {
+            for (Persona persona : listaPersonas)
             {
-                if(v.getId() == R.id.btnIngresar) {
-                    Log.d("Permitido Acceso","Encontrado");
+                if (persona.getMail().equals(this.personaIngresante.getMail())) {
+
+                    Log.d("Permitido Acceso", "Encontrado");
                     Context con = v.getContext();
                     Intent i = new Intent(con, Menu.class);
                     con.startActivity(i);
-                }
-            }else
-            {
-                Log.d("Acceso denegado","No Encontrado");
-            }
 
+                } else {
+                    Log.d("Acceso denegado", "No Encontrado");
+                }
+
+            }
         }
 
     }
