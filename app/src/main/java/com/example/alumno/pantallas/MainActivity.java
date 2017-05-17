@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         Persona persona = new Persona("sebita@live.com.ar" , clave);
         Persona persona2 = new Persona(mail , clave);
-        lista.add(persona);
+        lista.add(persona2);
 
         Button btn = (Button) findViewById(R.id.btnRegistro);
         Button btn2 = (Button) findViewById(R.id.btnIngresar);

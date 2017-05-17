@@ -19,7 +19,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
 
     List<Producto> listaProductos;
-    private MyOnItemClick listener;
     private Button btn;
 
 

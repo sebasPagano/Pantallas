@@ -8,7 +8,7 @@
         android:supportsRtl="true">
         <activity
             android:name=".Menu"
-            android:label="Pidiendo"
+            android:label="Menu"
             android:theme="@style/Italic">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

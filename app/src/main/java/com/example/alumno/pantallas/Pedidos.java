@@ -1,7 +1,10 @@
 package com.example.alumno.pantallas;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -35,13 +38,24 @@ public class Pedidos extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
-        if(item.getItemId() == R.id.bebida) {
+        Intent intent = new Intent();
+        if(item.getItemId() == R.id.LogOut2) {
             Log.d("click", "opcion del menu");
+            intent.setClass(this, MainActivity.class);
+            startActivity(intent);
 
             return super.onOptionsItemSelected(item);
 
 
         }
+        if(item.getItemId() == R.id.LogOut2) {
+
+            return super.onOptionsItemSelected(item);
+
+
+        }
+
+
         return false;
 
     }

@@ -1,5 +1,6 @@
 package com.example.alumno.pantallas;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,7 +36,7 @@ public class Menu extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
-
+        Intent intent = new Intent();
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -92,7 +93,14 @@ public class Menu extends AppCompatActivity{
 
 
         }
-
+        if(item.getItemId() == R.id.LogOut) {
+            intent.setClass(this, MainActivity.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.VerPedido) {
+            intent.setClass(this, Pedidos.class);
+            startActivity(intent);
+        }
         return false;
 
     }
