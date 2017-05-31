@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.alumno.pantallas.login.VistaLogin;
+import com.example.alumno.pantallas.pedido.Pedidos;
 
 /**
  * Created by Pagano on 03/05/2017.
@@ -18,15 +16,21 @@ import java.util.List;
 public class MyListener implements View.OnClickListener {
 
     Activity a;
-    List<Persona> listaPersonas;
-    Persona personaIngresante;
     FragmentManager fr;
+    VistaLogin vistaLogin;
 
     public MyListener(Activity ac)
     {
         this.a = ac;
 
     }
+
+    public MyListener(VistaLogin v)
+    {
+        this.vistaLogin = v;
+    }
+
+
     public MyListener(Activity ac,FragmentManager fm)
     {
         this.a = ac;
@@ -35,14 +39,6 @@ public class MyListener implements View.OnClickListener {
 
 
 
-    public MyListener(Activity ac,List<Persona> lista, Persona per)
-    {
-        this.a = ac;
-        this.listaPersonas = lista;
-        this.personaIngresante = per;
-
-    }
-
 
 
     @Override
@@ -50,9 +46,8 @@ public class MyListener implements View.OnClickListener {
 
 
         if(v.getId() == R.id.btnRegistro) {
-            Context con = v.getContext();
-            Intent i = new Intent(con, Registro.class);
-            con.startActivity(i);
+
+            vistaLogin.registrar(v);
         }
         if(v.getId() == R.id.btnEnviarPedido)
         {
@@ -68,27 +63,11 @@ public class MyListener implements View.OnClickListener {
 
 
         if(v.getId() == R.id.btnIngresar) {
-            for (Persona persona : listaPersonas)
-            {
-                if (persona.getMail().equals(this.personaIngresante.getMail())) {
-
-                    Log.d("Permitido Acceso", "Encontrado");
-                    Context con = v.getContext();
-                    Intent i = new Intent(con, Menu.class);
-                    con.startActivity(i);
-
-                } else {
-                    Log.d("Acceso denegado", "No Encontrado");
-                }
-
-            }
+            vistaLogin.ingresar(v);
         }
 
 
     }
 
-    public List<Persona> retornarLista(List<Persona> lista)
-    {
-        return lista;
-    }
+
 }

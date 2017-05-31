@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pantallas.iml" filepath="$PROJECT_DIR$/Pantallas.iml" />
       <module fileurl="file://$PROJECT_DIR$/PantallasGit.iml" filepath="$PROJECT_DIR$/PantallasGit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP-master.iml" filepath="$PROJECT_DIR$/TP-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/TpJava.iml" filepath="$PROJECT_DIR$/TpJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
