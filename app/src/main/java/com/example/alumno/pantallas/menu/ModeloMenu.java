@@ -5,4 +5,6 @@ package com.example.alumno.pantallas.menu;
  */
 
 public class ModeloMenu {
+    public ModeloMenu()
+    {}
 }

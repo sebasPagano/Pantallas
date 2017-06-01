@@ -7,6 +7,7 @@ import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.pojo.Listados;
 import com.example.alumno.pantallas.pojo.Persona;
 import com.example.alumno.pantallas.R;
+import com.example.alumno.pantallas.registro.ControladorRegistro;
 import com.example.alumno.pantallas.registro.ModeloRegistro;
 
 import java.util.ArrayList;
@@ -20,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ModeloRegistro modeloRegistro = new ModeloRegistro();
+        ModeloLogin modeloLogin = new ModeloLogin();
         VistaLogin vista = new VistaLogin(this);
         ControladorLogin controladorLogin = new ControladorLogin(new MyListener(vista));
+        controladorLogin.setModeloLogin(modeloLogin);
+        vista.setControladorLogin(controladorLogin);
     }
 }

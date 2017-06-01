@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.alumno.pantallas.login.VistaLogin;
+import com.example.alumno.pantallas.menu.VistaMenu;
 import com.example.alumno.pantallas.pedido.Pedidos;
+import com.example.alumno.pantallas.pedido.VistaPedido;
 import com.example.alumno.pantallas.registro.VistaRegistro;
 
 /**
@@ -21,7 +23,8 @@ public class MyListener implements View.OnClickListener {
     FragmentManager fr;
     VistaLogin vistaLogin;
     VistaRegistro vistaRegistro;
-
+    VistaMenu vistaMenu;
+    VistaPedido vistaPedido;
     public MyListener(Activity ac)
     {
         this.a = ac;
@@ -36,14 +39,14 @@ public class MyListener implements View.OnClickListener {
     {
         this.vistaRegistro = v;
     }
-
-
-    public MyListener(Activity ac,FragmentManager fm)
+    public MyListener(VistaMenu v)
     {
-        this.a = ac;
-        this.fr = fm;
+        this.vistaMenu = v;
     }
-
+    public MyListener(VistaPedido v)
+    {
+        this.vistaPedido = v;
+    }
 
 
 
@@ -61,14 +64,11 @@ public class MyListener implements View.OnClickListener {
         }
         if(v.getId() == R.id.btnEnviarPedido)
         {
-            Context con = v.getContext();
-            Intent i = new Intent(con, Pedidos.class);
-            con.startActivity(i);
+            vistaMenu.irApedido(v);
         }
         if(v.getId() == R.id.AceptarPedido2)
         {
-            MiDialogo di = new MiDialogo();
-            di.show(this.fr,"asd");
+            vistaPedido.MostrarMensaje();
         }
         if(v.getId() == R.id.btnRegistrarse)
         {

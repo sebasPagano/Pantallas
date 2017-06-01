@@ -14,6 +14,7 @@ public class Listados {
 
     private static Listados  listados;
     public static Set<Persona> listaPersonas;
+    public static Set<Producto> listaProductos;
 
 
     private Listados()

@@ -27,9 +27,8 @@ public class Menu extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button btn = (Button) findViewById(R.id.btnEnviarPedido);
-        MyListener listener = new MyListener(this);
-        btn.setOnClickListener((View.OnClickListener)listener);
+        VistaMenu vistaMenu =  new VistaMenu(this);
+        ControladorMenu controladorMenu = new ControladorMenu(new MyListener(vistaMenu));
 
 
     }

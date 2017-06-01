@@ -34,9 +34,8 @@ public class Pedidos extends AppCompatActivity {
         MyAdapterPedidos adapter = new MyAdapterPedidos(listaProducto);
         rv.setAdapter(adapter);
 
-        Button btn = (Button) findViewById(R.id.AceptarPedido2);
-        MyListener listener = new MyListener(this,getFragmentManager());
-        btn.setOnClickListener((View.OnClickListener)listener);
+        VistaPedido vistaPedido = new VistaPedido(this);
+        ControladorPedido controladorPedido = new ControladorPedido(new MyListener(vistaPedido));
         /*MiDialogo di = new MiDialogo();
         di.show(getFragmentManager(),"cualquierCosa");*/
 
