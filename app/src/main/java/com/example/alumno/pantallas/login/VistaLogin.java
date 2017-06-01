@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.example.alumno.pantallas.menu.Menu;
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.R;
+import com.example.alumno.pantallas.pojo.Listados;
 import com.example.alumno.pantallas.pojo.Persona;
 import com.example.alumno.pantallas.registro.Registro;
 
@@ -20,11 +21,11 @@ import com.example.alumno.pantallas.registro.Registro;
 
 public class VistaLogin {
 
-    EditText editTextMail;
-    EditText editTextClave;
-    Button btnIngresar;
-    Button btnRegistrarme;
-    Activity a;
+    private EditText editTextMail;
+    private EditText editTextClave;
+    private Button btnIngresar;
+    private Button btnRegistrarme;
+    private Activity a;
 
     public VistaLogin(Activity a)
     {
@@ -42,8 +43,11 @@ public class VistaLogin {
     }
     public void ingresar(View v)
     {
-        for(Persona pe : MainActivity.listPersonas)
+
+        for(Persona pe : Listados.listaPersonas)
         {
+            Log.d("hola",pe.toString());
+
             if(pe.getMail().toString().equals(editTextMail.getText().toString()) && pe.getClave().toString().equals(editTextClave.getText().toString()))
           {
 

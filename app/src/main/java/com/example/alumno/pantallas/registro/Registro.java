@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.pojo.Persona;
 import com.example.alumno.pantallas.R;
 
@@ -18,12 +19,10 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        List<Persona> listaPersonas = new ArrayList<>();
-
-        Persona p1 = new Persona("Sebastian","Pagano",40253335,"seba@hotmail.com","asdasd");
-
-        TextView nombre = (TextView) findViewById(R.id.textViewNombre);
-        Log.d("hola",(String)nombre.getText());
-
+        ModeloRegistro modeloRegistro = new ModeloRegistro();
+        VistaRegistro vistaRegistro =  new VistaRegistro(this,modeloRegistro);
+        ControladorRegistro controladorRegistro = new ControladorRegistro(new MyListener(vistaRegistro));
     }
+
+
 }

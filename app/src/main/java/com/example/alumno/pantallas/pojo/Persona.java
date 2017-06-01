@@ -1,5 +1,8 @@
 package com.example.alumno.pantallas.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Pagano on 03/05/2017.
  */
@@ -107,5 +110,10 @@ public class Persona {
 
         return resultado;
 
+    }
+    @Override
+    public String toString()
+    {
+        return this.apellido+"-"+ this.nombre+"-"+ this.clave+"-"+this.dni+"-"+this.mail;
     }
 }
