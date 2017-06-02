@@ -27,9 +27,9 @@ public class VistaRegistro {
     private EditText editTextReingreseClave;
     private Button btnRegistro;
     private Activity a;
-    private ModeloRegistro modelo;
+    private ControladorRegistro controladorRegistro;
 
-    public VistaRegistro(Activity a, ModeloRegistro modelo)
+    public VistaRegistro(Activity a)
     {
         this.a = a;
         editTextNombre = (EditText) a.findViewById(R.id.editTextNombre);
@@ -41,7 +41,6 @@ public class VistaRegistro {
         btnRegistro = (Button) a.findViewById(R.id.btnRegistrarse);
         View.OnClickListener listener = new MyListener(this);
         btnRegistro.setOnClickListener(listener);
-        this.modelo = modelo;
     }
     public void Registrar(View v)
     {
@@ -54,21 +53,18 @@ public class VistaRegistro {
 
         if(clave.equals(reingreseClave)) {
 
-            boolean valida = ControladorRegistro.Validar(nombre,apellido,dni,clave,mail);
-
-            if(valida) {
-                modelo.agregarUsuario(new Persona(nombre,apellido,dni,mail,clave));
-                Log.d("Registrarme", "registro");
-                Context con = v.getContext();
-                Intent i = new Intent(con, MainActivity.class);
-                con.startActivity(i);
-            }
+            controladorRegistro.volverAlLogin(v,nombre,apellido,dni,clave,mail);
         }else
         {
             Log.d("INCORRECTO", "Las claves son distintas");
         }
+
     }
 
+    public void setControladorRegistro(ControladorRegistro con)
+    {
+        this.controladorRegistro = con;
+    }
 
 
 }
