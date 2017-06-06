@@ -64,7 +64,7 @@ public class MyListener implements View.OnClickListener {
         }
         if(v.getId() == R.id.btnEnviarPedido)
         {
-            vistaMenu.irApedido(v);
+            vistaMenu.enviandoPedido(v);
         }
         if(v.getId() == R.id.AceptarPedido2)
         {
@@ -75,8 +75,6 @@ public class MyListener implements View.OnClickListener {
 
             vistaRegistro.Registrar(v);
         }
-
-
 
     }
 

@@ -2,6 +2,7 @@ package com.example.alumno.pantallas.pojo;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,14 +14,15 @@ import java.util.Set;
 public class Listados {
 
     private static Listados  listados;
-    public static Set<Persona> listaPersonas;
-    public static Set<Producto> listaProductos;
+    public static List<Persona> listaPersonas;
+    public static List<Producto> listaProductoDelPedido;
 
 
     private Listados()
     {
         Log.d("inicializo","listado");
-        listaPersonas = new HashSet<>();
+        listaPersonas = new ArrayList<>();
+        listaProductoDelPedido = new ArrayList<>();
         listaPersonas.add(new Persona("seba","pagano",40253335,"seba@hotmail.com","123123"));
     }
     public static Listados getListados()
@@ -31,6 +33,14 @@ public class Listados {
             listados = new Listados();
         }
         return listados;
+    }
+    public static List<Producto> getListaProductos()
+    {
+        return listaProductoDelPedido;
+    }
+    public void setListaProductos(List<Producto> lista)
+    {
+        listaProductoDelPedido = lista;
     }
 
 

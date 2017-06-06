@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import com.example.alumno.pantallas.R;
 import com.example.alumno.pantallas.menu.MyViewHolder;
+import com.example.alumno.pantallas.pojo.Listados;
 import com.example.alumno.pantallas.pojo.Producto;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Pagano on 01/05/2017.
@@ -25,7 +27,7 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
     Button btnQuitar;
     Producto producto;
     MyAdapterPedidos adapter;
-    private static List<Producto>  listaProducto = MyViewHolder.getlista();
+    private static List<Producto> listaProducto = Listados.getListaProductos();
 
 
 

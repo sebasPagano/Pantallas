@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
-    <item android:id="@+id/VerPedido" android:title="Ver Pedido Actual" >
+    <item
+        android:id="@+id/VerPedido"
+        android:title="Ver Pedido Actual" >
     </item>
     <item android:id="@+id/LogOut" android:title="LogOut" >
     </item>
