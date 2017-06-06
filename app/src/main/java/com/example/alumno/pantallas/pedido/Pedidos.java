@@ -9,11 +9,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.alumno.pantallas.MiDialogo;
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.R;
 import com.example.alumno.pantallas.login.MainActivity;
+import com.example.alumno.pantallas.pojo.Listados;
 import com.example.alumno.pantallas.pojo.Producto;
 
 import java.util.List;
@@ -26,17 +28,31 @@ public class Pedidos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        List<Producto> listaProducto = MyViewHolderPedidos.getlista();
-
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
-        MyAdapterPedidos adapter = new MyAdapterPedidos(listaProducto);
+        MyAdapterPedidos adapter = new MyAdapterPedidos(Listados.listaProductoDelPedido,this);
         rv.setAdapter(adapter);
 
         VistaPedido vistaPedido = new VistaPedido(this);
         ControladorPedido controladorPedido = new ControladorPedido(new MyListener(vistaPedido));
+        vistaPedido.setControladorPedido(controladorPedido);
+
+        TextView cantidad = (TextView) findViewById(R.id.cantidad2);
+        cantidad.setText(String.valueOf(Listados.listaProductoDelPedido.size()));
+        TextView precio = (TextView) findViewById(R.id.sumaPrecio2);
+        double suma = 0;
+
+        for (Producto prod: Listados.listaProductoDelPedido)
+        {
+            suma = suma + prod.getPrecio();
+        }
+        precio.setText(String.valueOf(suma));
+
+
+
+
         /*MiDialogo di = new MiDialogo();
         di.show(getFragmentManager(),"cualquierCosa");*/
 
@@ -65,6 +81,11 @@ public class Pedidos extends AppCompatActivity {
 
 
             return super.onOptionsItemSelected(item);
+        }
+        if(item.getItemId() == R.id.Limpiar)
+        {
+            MyViewHolderPedidos.limpiar();
+
         }
 
 

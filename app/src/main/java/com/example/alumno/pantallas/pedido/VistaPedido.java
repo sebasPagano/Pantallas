@@ -7,6 +7,7 @@ import android.widget.Button;
 import com.example.alumno.pantallas.MiDialogo;
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.R;
+import com.example.alumno.pantallas.menu.ControladorMenu;
 
 /**
  * Created by sepagano on 31/5/2017.
@@ -15,6 +16,7 @@ import com.example.alumno.pantallas.R;
 public class VistaPedido {
 
     private Button btnAceptarPedido;
+    private ControladorPedido controladorPedido;
     private Activity a;
     public VistaPedido(Activity a)
     {
@@ -24,10 +26,18 @@ public class VistaPedido {
         btnAceptarPedido.setOnClickListener(listener);
     }
 
-    public void MostrarMensaje()
+    public void MostrarMensaje(View v)
     {
         MiDialogo di = new MiDialogo();
         di.show(a.getFragmentManager(),"asd");
+
+        controladorPedido.irAMenu(v);
+
+    }
+
+    public void setControladorPedido(ControladorPedido controlador)
+    {
+        this.controladorPedido = controlador;
     }
 
 }

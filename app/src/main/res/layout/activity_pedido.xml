@@ -8,14 +8,6 @@
     tools:context="com.example.alumno.pantallas.pedido.Pedidos"
     android:background="@color/colorFondo2"
     >
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enviar Pedido"
-        android:id="@+id/AceptarPedido2"
-        android:layout_gravity="center"
-        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
@@ -25,4 +17,69 @@
 
     </android.support.v7.widget.RecyclerView>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="bottom|center"
+        android:orientation="vertical"
+        android:theme="@style/AppTheme">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:theme="@style/AppTheme"
+
+            >
+
+            <TextView
+                android:id="@+id/elementos2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:text="Productos: "
+                android:textSize="20dp"
+
+                />
+
+            <TextView
+                android:id="@+id/cantidad2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/precioTv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:text="Precio: "
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/sumaPrecio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="20dp"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar Pedido"
+            android:id="@+id/AceptarPedido2"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
 </LinearLayout>

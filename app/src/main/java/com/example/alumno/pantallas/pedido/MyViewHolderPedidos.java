@@ -1,5 +1,6 @@
 package com.example.alumno.pantallas.pedido;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -26,12 +27,11 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
     ImageView ivImagen;
     Button btnQuitar;
     Producto producto;
-    MyAdapterPedidos adapter;
-    private static List<Producto> listaProducto = Listados.getListaProductos();
-
-
-
-
+    static MyAdapterPedidos adapter;
+    //private static List<Producto> listaProducto = Listados.getListaProductos();
+    static TextView precioTotal;
+    static TextView elementosSeleccionados;
+    Activity a;
     private int position;
 
     public MyViewHolderPedidos(View itemView, MyAdapterPedidos adapter)
@@ -45,40 +45,50 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
         this.adapter = adapter;
     }
 
+    public MyViewHolderPedidos(View itemView, MyAdapterPedidos adapter,Activity a)
+    {
+
+        super(itemView);
+        tvNombre = (TextView) itemView.findViewById(R.id.tvNombrePedido);
+        tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecioPedido);
+        ivImagen = (ImageView) itemView.findViewById(R.id.IVimagenPedido);
+        btnQuitar = (Button) itemView.findViewById(R.id.btnQuitarProducto);
+        this.adapter = adapter;
+        this.a = a;
+        precioTotal = (TextView) a.findViewById(R.id.sumaPrecio2);
+        elementosSeleccionados = (TextView) a.findViewById(R.id.cantidad2);
+    }
 
 
 
     @Override
     public void onClick(View v) {
-        //  listener.onItemClick(position);
-        for (Producto producto: this.listaProducto)
-        {
-            Log.d("Productos",producto.getNombre());
-        }
-        if(v.getId() == R.id.btnQuitarProducto)
-        {
-            Log.d("Hizo click en el producto",this.position+" - "+this.producto.getNombre());
-            listaProducto.remove(this.getLayoutPosition());
+
+        double suma = 0;
+        if(v.getId() == R.id.btnQuitarProducto) {
+            Log.d("Hizo click en el producto", this.position + " - " + this.producto.getNombre());
+            Listados.listaProductoDelPedido.remove(this.getLayoutPosition());
+            elementosSeleccionados.setText(String.valueOf(Listados.listaProductoDelPedido.size()));
+
+            for (Producto prod : Listados.listaProductoDelPedido) {
+                suma = suma + prod.getPrecio();
+            }
+            precioTotal.setText(String.valueOf(suma));
+
             adapter.notifyDataSetChanged();
+
+
         }
-
-
-
-
-
-
     }
-    public static List<Producto> getlista()
+    public static void limpiar()
     {
-        return listaProducto;
+        Listados.listaProductoDelPedido.clear();
+        elementosSeleccionados.setText(String.valueOf(0));
+
+        precioTotal.setText(String.valueOf(0.0));
+
+        adapter.notifyDataSetChanged();
     }
-    public static void setlista(List<Producto> lista )
-    {
-        listaProducto = lista;
-    }
-
-
-
 
 
     public void setPositionYProducto(int position,Producto producto)

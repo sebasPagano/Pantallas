@@ -68,7 +68,7 @@ public class MyListener implements View.OnClickListener {
         }
         if(v.getId() == R.id.AceptarPedido2)
         {
-            vistaPedido.MostrarMensaje();
+            vistaPedido.MostrarMensaje(v);
         }
         if(v.getId() == R.id.btnRegistrarse)
         {

@@ -19,6 +19,8 @@ public class MiDialogo extends DialogFragment {
         builder.setMessage("Aceptado pedido");
         ListenerAlert l = new ListenerAlert();
         builder.setPositiveButton("Aceptar", l);
+
+
 // Creamos el dialogo
         AlertDialog ad = builder.create();
         return ad;

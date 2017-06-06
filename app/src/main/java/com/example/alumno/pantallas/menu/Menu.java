@@ -43,8 +43,7 @@ ControladorMenu controladorMenu;
         controladorMenu = new ControladorMenu(new MyListener(vistaMenu));
         controladorMenu.setModeloMenu(modeloMenu);
         vistaMenu.setControladorMenu(controladorMenu);
-    //    Listados listado = Listados.getListados();
-      //  TextView cantidad = (TextView) findViewById(R.id.cantidad);
+
 
     }
 

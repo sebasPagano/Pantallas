@@ -1,5 +1,6 @@
 package com.example.alumno.pantallas.pedido;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +22,13 @@ public class MyAdapterPedidos extends RecyclerView.Adapter<MyViewHolderPedidos>{
 
     List<Producto> listaProductos;
     private Button btn;
+    private Activity a;
 
-
-    public MyAdapterPedidos(List<Producto> lista)
+    public MyAdapterPedidos(List<Producto> lista, Activity a)
 
     {
         this.listaProductos = lista;
+        this.a = a;
 
 
 
@@ -35,7 +37,7 @@ public class MyAdapterPedidos extends RecyclerView.Adapter<MyViewHolderPedidos>{
     public MyViewHolderPedidos onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itempedidos_layout,parent,false);
-        MyViewHolderPedidos mv = new MyViewHolderPedidos(v,this);
+        MyViewHolderPedidos mv = new MyViewHolderPedidos(v,this,a);
         return mv;
 
     }
