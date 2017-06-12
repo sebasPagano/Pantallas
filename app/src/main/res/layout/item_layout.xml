@@ -35,14 +35,15 @@
             android:layout_gravity="center"
             />
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnAgregarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="X"
+            android:src="@android:drawable/ic_input_add"
             android:layout_gravity="center"
             android:textSize="20sp"
             />
+
 
         </TableRow>
 

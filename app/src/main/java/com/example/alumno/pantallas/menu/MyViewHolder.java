@@ -1,6 +1,7 @@
 package com.example.alumno.pantallas.menu;
 
 import android.app.Activity;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +26,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
     TextView tvNombre;
     TextView tvPrecio;
     ImageView ivImagen;
-    Button btnAgregar;
+    FloatingActionButton btnAgregar;
     Producto producto;
     private int position;
     TextView cantidad;
@@ -34,14 +35,11 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     public MyViewHolder(View itemView)
     {
-
         super(itemView);
         tvNombre = (TextView) itemView.findViewById(R.id.tvNombre);
         tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecio);
         ivImagen = (ImageView) itemView.findViewById(R.id.IVimagen);
-        btnAgregar = (Button) itemView.findViewById(R.id.btnAgregarProducto);
-
-
+        btnAgregar = (FloatingActionButton ) itemView.findViewById(R.id.btnAgregarProducto);
     }
     public MyViewHolder(View itemView, Activity a)
     {
@@ -50,7 +48,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
         tvNombre = (TextView) itemView.findViewById(R.id.tvNombre);
         tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecio);
         ivImagen = (ImageView) itemView.findViewById(R.id.IVimagen);
-        btnAgregar = (Button) itemView.findViewById(R.id.btnAgregarProducto);
+        btnAgregar = (FloatingActionButton ) itemView.findViewById(R.id.btnAgregarProducto);
         cantidad = (TextView) a.findViewById(R.id.cantidad);
         precioTotal =(TextView) a.findViewById(R.id.sumaPrecio);
 
@@ -81,20 +79,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         Log.d("Suma",""+suma);
 
-
-
-
     }
-    /*public static List<Producto> getlista()
-    {
-        return listaProducto;
-    }*/
 
-
-    /*public static int getcantidadlista()
-    {
-        return listaProducto.size();
-    }*/
 
     public void setPositionYProducto(int position,Producto producto)
     {

@@ -1,6 +1,7 @@
 package com.example.alumno.pantallas.pedido;
 
 import android.app.Activity;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -25,15 +26,15 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
     TextView tvNombre;
     TextView tvPrecio;
     ImageView ivImagen;
-    Button btnQuitar;
+    FloatingActionButton btnQuitar;
     Producto producto;
     static MyAdapterPedidos adapter;
-    //private static List<Producto> listaProducto = Listados.getListaProductos();
     static TextView precioTotal;
     static TextView elementosSeleccionados;
     Activity a;
     private int position;
 
+    /*
     public MyViewHolderPedidos(View itemView, MyAdapterPedidos adapter)
     {
 
@@ -43,7 +44,7 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
         ivImagen = (ImageView) itemView.findViewById(R.id.IVimagenPedido);
         btnQuitar = (Button) itemView.findViewById(R.id.btnQuitarProducto);
         this.adapter = adapter;
-    }
+    }*/
 
     public MyViewHolderPedidos(View itemView, MyAdapterPedidos adapter,Activity a)
     {
@@ -52,7 +53,7 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
         tvNombre = (TextView) itemView.findViewById(R.id.tvNombrePedido);
         tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecioPedido);
         ivImagen = (ImageView) itemView.findViewById(R.id.IVimagenPedido);
-        btnQuitar = (Button) itemView.findViewById(R.id.btnQuitarProducto);
+        btnQuitar = (FloatingActionButton) itemView.findViewById(R.id.btnQuitarProducto);
         this.adapter = adapter;
         this.a = a;
         precioTotal = (TextView) a.findViewById(R.id.sumaPrecio2);

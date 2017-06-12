@@ -32,10 +32,11 @@ public class ControladorMenu {
     }
     public void irAPedido(View v)
     {
-        Context con = v.getContext();
-        Intent i = new Intent(con, Pedidos.class);
-        con.startActivity(i);
-
+        if(modeloMenu.ListaNoEsNull() == true) {
+            Context con = v.getContext();
+            Intent i = new Intent(con, Pedidos.class);
+            con.startActivity(i);
+        }
     }
 
 }

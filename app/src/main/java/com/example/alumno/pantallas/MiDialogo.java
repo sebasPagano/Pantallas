@@ -13,8 +13,7 @@ public class MiDialogo extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new
-                AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Enviado!");
         builder.setMessage("Aceptado pedido");
         ListenerAlert l = new ListenerAlert();
