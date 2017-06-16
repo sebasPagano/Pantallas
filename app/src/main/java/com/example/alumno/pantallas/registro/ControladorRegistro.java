@@ -2,6 +2,7 @@ package com.example.alumno.pantallas.registro;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 
@@ -38,12 +39,17 @@ public class ControladorRegistro {
     public void volverAlLogin(View v, String nombre, String apellido, int dni, String clave, String mail)
     {
         boolean valida = this.Validar(nombre,apellido,dni,clave,mail);
-
+        Log.d("valida","validaa"+valida);
         if(valida) {
+            Log.d("valida","validaa"+valida);
             modelo.agregarUsuario(new Persona(nombre,apellido,dni,mail,clave));
             Context con = v.getContext();
             Intent i = new Intent(con, MainActivity.class);
             con.startActivity(i);
+            }
+            else
+            {
+                Log.d("valida","no validaa"+valida);
             }
     }
 

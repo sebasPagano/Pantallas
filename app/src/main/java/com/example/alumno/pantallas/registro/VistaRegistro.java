@@ -49,8 +49,13 @@ public class VistaRegistro {
         String clave = editTextClave.getText().toString();
         String reingreseClave = editTextReingreseClave.getText().toString();
         String mail = editTextMail.getText().toString();
-        int dni = Integer.parseInt(editTextDNI.getText().toString());
-
+        int dni;
+        if(editTextDNI.getText().toString().equals("")) {
+            dni = 0;
+        }else
+        {
+            dni = Integer.parseInt(editTextDNI.getText().toString());
+        }
         if(clave.equals(reingreseClave)) {
 
             controladorRegistro.volverAlLogin(v,nombre,apellido,dni,clave,mail);
