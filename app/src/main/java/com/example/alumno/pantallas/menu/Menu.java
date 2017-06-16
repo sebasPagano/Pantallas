@@ -37,7 +37,9 @@ ControladorMenu controladorMenu;
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        Listados.listaProductoDelPedido.clear();
+        if(Listados.listaProductoDelPedido != null) {
+            Listados.listaProductoDelPedido.clear();
+        }
         vistaMenu =  new VistaMenu(this);
         ModeloMenu modeloMenu = new ModeloMenu();
         controladorMenu = new ControladorMenu(new MyListener(vistaMenu));

@@ -1,5 +1,7 @@
 package com.example.alumno.pantallas.pedido;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alumno.pantallas.ListenerAlert;
 import com.example.alumno.pantallas.MiDialogo;
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.R;
@@ -23,6 +26,7 @@ import java.util.Set;
 
 public class Pedidos extends AppCompatActivity {
 
+    ControladorPedido controladorPedido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +40,7 @@ public class Pedidos extends AppCompatActivity {
         rv.setAdapter(adapter);
 
         VistaPedido vistaPedido = new VistaPedido(this);
-        ControladorPedido controladorPedido = new ControladorPedido(new MyListener(vistaPedido));
+       controladorPedido = new ControladorPedido(new MyListener(vistaPedido));
         vistaPedido.setControladorPedido(controladorPedido);
 
         TextView cantidad = (TextView) findViewById(R.id.cantidad2);
@@ -76,11 +80,43 @@ public class Pedidos extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.AceptarPedido) {
-            MiDialogo di = new MiDialogo();
-            di.show(getFragmentManager(),"cualquierCosa");
+
+            View v = this.getLayoutInflater().inflate(R.layout.activity_pedido, null);
+            controladorPedido.setView(v);
+            if(Listados.listaProductoDelPedido.size() != 0) {
+                Log.d("cantida",""+Listados.listaProductoDelPedido.size());
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Enviado!");
+                builder.setMessage("Aceptado pedido");
+                ListenerAlert l = new ListenerAlert();
+                builder.setPositiveButton(("OK"),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                controladorPedido.irAMenu();
+                            }
+                        });
 
 
-            return super.onOptionsItemSelected(item);
+                AlertDialog ad = builder.create();
+                ad.show();
+            }else
+            {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("No puede enviar 0 productos!");
+                builder.setMessage("No tiene elementos");
+                ListenerAlert l = new ListenerAlert();
+                builder.setPositiveButton(("OK"),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                controladorPedido.irAMenu();
+                            }
+                        });
+                AlertDialog ad = builder.create();
+                ad.show();
+
+            }
+
+
         }
         if(item.getItemId() == R.id.Limpiar)
         {
@@ -88,10 +124,8 @@ public class Pedidos extends AppCompatActivity {
 
         }
 
+        return super.onOptionsItemSelected(item);
 
-
-
-        return false;
 
     }
 

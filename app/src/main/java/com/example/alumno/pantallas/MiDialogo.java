@@ -22,6 +22,7 @@ public class MiDialogo extends DialogFragment {
 
 // Creamos el dialogo
         AlertDialog ad = builder.create();
+
         return ad;
     }
 

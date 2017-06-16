@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.menu.Menu;
+import com.example.alumno.pantallas.menu.ModeloMenu;
 
 /**
  * Created by sepagano on 31/5/2017.
@@ -14,6 +15,18 @@ import com.example.alumno.pantallas.menu.Menu;
 public class ControladorPedido {
 
     MyListener listener;
+    ModeloPedido modeloPedido;
+    VistaPedido vistaPedido;
+    View v;
+    public void setVistaPedido(VistaPedido vistaPedido) {
+        this.vistaPedido = vistaPedido;
+    }
+
+    public void setModeloPedido(ModeloPedido modeloPedido) {
+        this.modeloPedido = modeloPedido;
+    }
+
+
     public ControladorPedido(MyListener listener)
     {
         this.listener = listener;
@@ -24,11 +37,15 @@ public class ControladorPedido {
         return this.listener;
     }
 
-    public void irAMenu(View v)
+    public void setView(View view)
     {
-        Context con = v.getContext();
-        Intent i = new Intent(con, Menu.class);
-        con.startActivity(i);
+        this.v = view;
+    }
+    public void irAMenu()
+    {
+            Context con = v.getContext();
+            Intent i = new Intent(con, Menu.class);
+            con.startActivity(i);
 
     }
 

@@ -15,6 +15,8 @@ public class Persona {
     private String mail;
     private String clave;
 
+    public Persona()
+    {}
     public Persona(String mail, String clave)
     {
 
@@ -59,10 +61,31 @@ public class Persona {
     }
 
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj.getClass().equals(this.getClass()))
         {
+
             Persona p1 = (Persona) obj;
             if(this.nombre.equals(p1.nombre) && this.apellido.equals(p1.apellido)
                     && this.clave.equals(p1.clave)&&  this.mail.equals(p1.mail) && this.dni == p1.dni)
