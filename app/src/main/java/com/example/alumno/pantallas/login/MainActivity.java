@@ -38,17 +38,14 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
         controladorLogin.setModeloLogin(modeloLogin);
         vista.setControladorLogin(controladorLogin);
 
-        /*JsonPar jsonPar = new JsonPar();
-        jsonPar.parsear("{'codigo': 200,'mensaje':'Validado'}");
+
 
        Handler handler = new Handler(this);
 
-      ThreadConexion s1 = new ThreadConexion("http://imagenpng.com/wp-content/uploads/2015/09/eldesastredemaria.blogspot.com-pngnofamosos-63.png",handler);
+        ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler);
         Thread t = new Thread(s1);
-        ImageView img =(ImageView) findViewById(R.id.imagenPrueba);
-        TextView txt = (TextView) findViewById(R.id.textView);
 
-       t.start();*/
+       t.start();
 
 
     }
@@ -70,7 +67,18 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
            //     img.setImageBitmap(bitmap);
                 break;
             case 2:
-               // txt.setText((String) msg.obj);
+                List<Persona> personas = (List<Persona>) msg.obj;
+
+                for(Persona p : personas) {
+                    Log.d("Persona",p.getNombre()+"-"+p.getApellido()+"-"+p.getMail()+"-"+p.getClave()+"-"+p.getDni());
+                    Listados.listaPersonas.add(p);
+                }
+
+                for(Persona p : Listados.listaPersonas) {
+                    Log.d("Personass en listapersonas",p.getNombre()+"-"+p.getApellido()+"-"+p.getMail()+"-"+p.getClave()+"-"+p.getDni());
+                    ;
+                }
+
                 break;
 
         }

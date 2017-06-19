@@ -11,7 +11,7 @@ public class Persona {
 
     private String nombre;
     private String apellido;
-    private int dni;
+    private long dni;
     private String mail;
     private String clave;
 
@@ -24,7 +24,7 @@ public class Persona {
         this.clave = clave;
     }
 
-    public Persona(String nombre, String apellido, int dni,String mail, String clave)
+    public Persona(String nombre, String apellido, long dni,String mail, String clave)
     {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -55,7 +55,7 @@ public class Persona {
     }
 
 
-    public int getDni()
+    public long getDni()
     {
         return this.dni;
     }
@@ -69,7 +69,7 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public void setDni(int dni) {
+    public void setDni(long dni) {
         this.dni = dni;
     }
 
@@ -110,7 +110,7 @@ public class Persona {
 
         if(dni != 0)
         {
-            resultado = numero* resultado + dni;
+            resultado = numero* resultado + (int)dni;
         }
         if(nombre!=null)
         {

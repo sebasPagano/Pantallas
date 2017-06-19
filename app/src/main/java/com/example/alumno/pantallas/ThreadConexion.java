@@ -35,8 +35,20 @@ public class ThreadConexion implements Runnable {
 
         try {
             // byte[] arrayByte;
-            msg.obj=   conexion.getBytesDateByGET(this.url);
-            msg.arg1 = 1;
+           // msg.obj=   conexion.getBytesDateByGET(this.url);
+           // msg.arg1 = 1;
+
+            JsonPar jsonPar = new JsonPar();
+
+            String strRespuesta;
+            Log.d("Que pasa","llamando a getbytes");
+            strRespuesta=   conexion.getBytesDateByGET2(this.url);
+            Log.d("Que pasa",strRespuesta);
+
+            msg.arg1 = 2;
+
+            msg.obj =jsonPar.parsear(strRespuesta);
+
         }catch (Exception e)
         {
             Log.d("Error","mal ahi");
