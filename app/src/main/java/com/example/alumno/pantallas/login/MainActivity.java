@@ -16,6 +16,7 @@ import com.example.alumno.pantallas.ThreadConexion;
 import com.example.alumno.pantallas.pojo.Listados;
 import com.example.alumno.pantallas.pojo.Persona;
 import com.example.alumno.pantallas.R;
+import com.example.alumno.pantallas.pojo.Producto;
 import com.example.alumno.pantallas.registro.ControladorRegistro;
 import com.example.alumno.pantallas.registro.ModeloRegistro;
 
@@ -42,10 +43,13 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
 
        Handler handler = new Handler(this);
 
-        ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler);
+        ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler,2);
         Thread t = new Thread(s1);
+        ThreadConexion s2 = new ThreadConexion("http://www.mocky.io/v2/5947d7d11100004e0c117504",handler,3);
+        Thread t2 = new Thread(s2);
 
-       t.start();
+        t.start();
+        t2.start();
 
 
     }
@@ -81,6 +85,26 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
 
                 break;
 
+            case 3:
+                List<Producto> productos = (List<Producto>) msg.obj;
+
+                for(Producto pr : productos) {
+                    Log.d("Producto",pr.getNombre());
+                    Listados.listaProductos.add(pr);
+
+                }
+                for(Producto pr : Listados.listaProductos) {
+                    Log.d("Producto",pr.getNombre()+"-"+pr.getTipoMenu()+"-"+pr.getPrecio2()+"-"+pr.getImagen());
+
+                }
+                //     Persona p =(Persona) msg.obj;
+              //  Producto pr = productos.get(0);
+                //   String nombre = (String)msg.obj;
+
+
+
+
+                break;
         }
 
         return false;

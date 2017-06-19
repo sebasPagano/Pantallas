@@ -9,6 +9,10 @@ public class Producto {
     private String Nombre;
     private int Precio;
     private int ruta;
+    private String tipoMenu;
+    private double precio2;
+    private String imagen;
+
 
     public Producto(String nombre, int precio)
     {
@@ -23,6 +27,19 @@ public class Producto {
         this.ruta = ruta;
 
         //@drawable/usuario
+    }
+    public Producto(String nombre,String tipoMenu,double precio,String imagen)
+    {
+        this.Nombre = nombre;
+        this.precio2 = precio;
+        this.imagen = imagen;
+        this.tipoMenu = tipoMenu;
+
+        //@drawable/usuario
+    }
+
+    public String getTipoMenu() {
+        return tipoMenu;
     }
 
     public String getNombre() {
@@ -45,6 +62,11 @@ public class Producto {
         return this.ruta;
     }
 
+    public double getPrecio2() {
+        return precio2;
+    }
 
-
+    public String getImagen() {
+        return imagen;
+    }
 }

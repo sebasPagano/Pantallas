@@ -14,15 +14,17 @@ public class ThreadConexion implements Runnable {
 
     private String url;
     private Handler handler;
+    private int opcion;
 
     public ThreadConexion()
     {
 
     }
-    public ThreadConexion(String url, Handler handler)
+    public ThreadConexion(String url, Handler handler,int opcion)
     {
         this.url = url;
         this.handler = handler;
+        this.opcion = opcion;
 
     }
 
@@ -32,23 +34,41 @@ public class ThreadConexion implements Runnable {
         Message msg = new Message();
 
         Conexion conexion = new Conexion();
-
+        JsonPar jsonPar = new JsonPar();
+        String strRespuesta;
         try {
             // byte[] arrayByte;
-           // msg.obj=   conexion.getBytesDateByGET(this.url);
-           // msg.arg1 = 1;
+            switch (opcion) {
+                case 1:
+                msg.obj = conexion.getBytesDateByGET(this.url);
+                msg.arg1 = 1;
 
-            JsonPar jsonPar = new JsonPar();
+                break;
 
-            String strRespuesta;
-            Log.d("Que pasa","llamando a getbytes");
-            strRespuesta=   conexion.getBytesDateByGET2(this.url);
-            Log.d("Que pasa",strRespuesta);
+                case 2:
 
-            msg.arg1 = 2;
 
-            msg.obj =jsonPar.parsear(strRespuesta);
+                Log.d("Que pasa", "llamando a getbytes");
+                strRespuesta = conexion.getBytesDateByGET2(this.url);
+                Log.d("Que pasa", strRespuesta);
 
+                msg.arg1 = 2;
+
+                msg.obj = jsonPar.parsear(strRespuesta);
+                    break;
+                case 3:
+
+
+                    strRespuesta = conexion.getBytesDateByGET2(this.url);
+                    Log.d("Que pasa", strRespuesta);
+
+                    msg.arg1 = 3;
+
+                    msg.obj = jsonPar.parsearProductos(strRespuesta);
+                    break;
+
+
+            }
         }catch (Exception e)
         {
             Log.d("Error","mal ahi");
