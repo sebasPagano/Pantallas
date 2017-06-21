@@ -20,18 +20,9 @@ public class JsonPar {
     public List<Persona> parsear(String str){
         List<Persona> lista = new ArrayList<>();
         try {
-            //  JSONObject jsonObject = new JSONObject(str);
-            //JSONArray frutas = jsonObject.getJSONArray("usuarios");
+
             JSONArray usuarios = new JSONArray(str);
 
-            //   for(int i = 0; i<frutas.length();i++)
-            // {
-            //JSONObject fruta = frutas.getJSONObject(i);
-             /*   String mensaje = jsonObject.getString("mensaje");
-                Integer cod = jsonObject.getInt("codigo");
-*/
-
-            //JSONArray usuarios = jsonObject.getJSONArray("usuarios");
 
             for(int i = 0; i<usuarios.length();i++) {
                 JSONObject jsonObject = usuarios.getJSONObject(i);

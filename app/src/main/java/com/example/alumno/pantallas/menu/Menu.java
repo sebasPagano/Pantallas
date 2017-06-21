@@ -137,13 +137,15 @@ ControladorMenu controladorMenu;
         if(item.getItemId() == R.id.VerPedido) {
             if(Listados.listaProductoDelPedido.size() == 0) {
 
+                /*
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("No puede enviar 0 productos!");
                 builder.setMessage("No tiene productos seleccionados");
                 ListenerAlert l = new ListenerAlert();
                 builder.setPositiveButton("OK", l);
                 AlertDialog ad = builder.create();
-                ad.show();
+                ad.show();*/
+                vistaMenu.enviandoPedido();
             }else {
                 intent.setClass(this, Pedidos.class);
                 startActivity(intent);

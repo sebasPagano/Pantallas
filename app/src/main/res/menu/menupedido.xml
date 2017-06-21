@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
-    <item android:id="@+id/AceptarPedido" android:title="Enviar pedido" >
+    <item android:id="@+id/AceptarPedido" android:title="@string/enviarPedido" >
     </item>
-    <item android:id="@+id/Limpiar" android:title="Limpiar" >
+    <item android:id="@+id/Limpiar" android:title="@string/limpiar" >
     </item>
-    <item android:id="@+id/LogOut2" android:title="LogOut" >
+    <item android:id="@+id/LogOut2" android:title="@string/cerrarSesion" >
     </item>
 
 

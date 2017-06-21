@@ -56,15 +56,15 @@ public class MyListener implements View.OnClickListener {
 
 
         if(v.getId() == R.id.btnIngresar) {
-            vistaLogin.ingresar(v);
+            vistaLogin.ingresar();
         }
         if(v.getId() == R.id.btnRegistro) {
 
-            vistaLogin.registrar(v);
+            vistaLogin.registrar();
         }
         if(v.getId() == R.id.btnEnviarPedido)
         {
-            vistaMenu.enviandoPedido(v);
+            vistaMenu.enviandoPedido();
         }
         if(v.getId() == R.id.AceptarPedido2)
         {
@@ -73,7 +73,7 @@ public class MyListener implements View.OnClickListener {
         if(v.getId() == R.id.btnRegistrarse)
         {
 
-            vistaRegistro.Registrar(v);
+            vistaRegistro.Registrar();
         }
 
     }

@@ -10,7 +10,6 @@
         >
         <activity
             android:name=".menu.Menu"
-            android:label="Menu"
             android:theme="@style/Italic">
         </activity>
 
@@ -30,7 +29,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".pedido.Pedidos" android:label="Mi Pedido" android:theme="@style/Italic">
+        <activity android:name=".pedido.Pedidos" android:label="@string/miPedido" android:theme="@style/Italic">
 
 
         </activity>

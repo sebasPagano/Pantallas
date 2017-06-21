@@ -16,6 +16,7 @@ public class ControladorLogin {
 
     private MyListener listener;
     private  ModeloLogin modeloLogin;
+    private boolean tieneAcceso;
     public ControladorLogin(MyListener listener)
     {
         this.listener = listener;
@@ -37,14 +38,15 @@ public class ControladorLogin {
     }
 
     public void irMenu(View v, String mail,String clave){
-
-        if(modeloLogin.encontrarUsuario(mail,clave)) {
+      tieneAcceso = modeloLogin.encontrarUsuario(mail,clave);
+        if(tieneAcceso) {
             Context con = v.getContext();
             Intent i = new Intent(con, Menu.class);
             con.startActivity(i);
         }
     }
 
-
-
+    public boolean isTieneAcceso() {
+        return tieneAcceso;
+    }
 }

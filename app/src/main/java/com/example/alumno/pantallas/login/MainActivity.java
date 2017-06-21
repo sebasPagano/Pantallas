@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
 
       //  ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler,2);
        // Thread t = new Thread(s1);
-        ThreadConexion s1 = new ThreadConexion("http://192.168.0.7:3000/usuarios",handler,2);
+        ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler,2);
         Thread t = new Thread(s1);
-        ThreadConexion s2 = new ThreadConexion("http://192.168.0.7:3000/productos",handler,3);
+        ThreadConexion s2 = new ThreadConexion("http://www.mocky.io/v2/5947d7d11100004e0c117504",handler,3);
         Thread t2 = new Thread(s2);
 
         t.start();

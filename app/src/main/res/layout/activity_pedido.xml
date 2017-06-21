@@ -10,7 +10,7 @@
     >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         >
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
-                android:text="Productos: "
+                android:text="@string/productos"
                 android:textSize="20dp"
 
                 />
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
-                android:text="Precio: "
+                android:text="@string/precio"
                 android:textSize="20dp"
                 />
 
@@ -80,7 +80,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enviar Pedido"
+            android:text="@string/enviarPedido"
             android:id="@+id/AceptarPedido2"
             android:layout_gravity="center"
             />

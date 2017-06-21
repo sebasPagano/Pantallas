@@ -1,11 +1,13 @@
 package com.example.alumno.pantallas.login;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.alumno.pantallas.ListenerAlert;
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.R;
 
@@ -22,10 +24,13 @@ public class VistaLogin {
     private Activity a;
     private ControladorLogin controladorLogin;
     private ModeloLogin modelo;
+    private View v;
+    private View vR;
     public VistaLogin(Activity a)
     {
         this.a = a;
-
+        this.v = a.getLayoutInflater().inflate(R.layout.activity_menu, null);
+        this.vR = a.getLayoutInflater().inflate(R.layout.activity_registro, null);
         editTextMail = (EditText) a.findViewById(R.id.EditMailLogin);
         editTextMail.setText("seba@hotmail.com");
         editTextClave = (EditText) a.findViewById(R.id.editClave);
@@ -37,15 +42,34 @@ public class VistaLogin {
         btnRegistrarme.setOnClickListener(listener);
 
     }
-    public void ingresar(View v)
+    public void ingresar()
     {
-        controladorLogin.irMenu(v,editTextMail.getText().toString(),editTextClave.getText().toString());
+        controladorLogin.irMenu(this.v,editTextMail.getText().toString(),editTextClave.getText().toString());
+
+        if(!controladorLogin.isTieneAcceso())
+        {
+            this.MostrarMensajeError();
+        }
     }
 
+    public void MostrarMensajeError()
+    {
+        String alerta = a.getString(R.string.alerta);
+        String aceptar = a.getString(R.string.aceptar);
+        String mensajeError = a.getString(R.string.mensajeErrorLogin);
 
-    public void registrar(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(a);
+        builder.setTitle(alerta+"!!!");
+        builder.setMessage(mensajeError);
+        ListenerAlert l = new ListenerAlert();
+        builder.setPositiveButton(aceptar, l);
+        AlertDialog ad = builder.create();
+        ad.show();
+    }
 
-        controladorLogin.irRegistrar(v);
+    public void registrar() {
+
+        controladorLogin.irRegistrar(this.vR);
     }
     public void setControladorLogin(ControladorLogin con)
     {

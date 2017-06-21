@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tituloLogin">Registro de Usuario</string>
+    <string name="descripcionLogin">Bienvenido a la primer aplicacion \n Buffet-UTN</string>
+    <string name="correo">Correo</string>
+    <string name="clave">Clave</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="recordarme">Recordarme</string>
+
+    <string name="descripcionRegistro">Esta es la pantalla de registro. \n Por favor ingrese datos verdaderos.</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="DNI">DNI</string>
+    <string name="reingrese1">Reingrese</string>
+    <string name="reingrese">Reingrese la clave</string>
+    <string name="registrarse">Registrarse</string>
+
+
+    <string name="bebida">Bebidas</string>
+    <string name="principal">Principal</string>
+    <string name="snacks">Snacks</string>
+    <string name="verPedido">Ver pedido actual</string>
+    <string name="cerrarSesion">Cerrar sesion</string>
+
+    <string name="precio">Precio: </string>
+    <string name="productos">Productos: </string>
+    <string name="enviarPedido">Enviar Pedido</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="miPedido">Mi Pedido</string>
+
+    <string name="enviado">Enviado</string>
+    <string name="aceptar">Aceptar</string>
+
+    <string name="alerta">Alerta</string>
+    <string name="mensajeError">No tiene elementos para enviar.</string>
+    <string name="mensajeErrorLogin">correo y/o clave incorrectos.</string>
+    <string name="mensajeErrorRegistro">Hay campos vacios.</string>
+    <string name="mensajeErrorClaves">Las claves tienen que ser iguales.</string>
+</resources>

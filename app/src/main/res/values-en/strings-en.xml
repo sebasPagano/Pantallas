@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="tituloLogin">User Registration</string>
+<string name="descripcionLogin">Welcome to the first application \n Buffet-UTN</string>
+<string name="correo">Mail</string>
+<string name="clave">Password</string>
+<string name="ingresar">Log in</string>
+<string name="registrarme">To register</string>
+<string name="recordarme">Remind me</string>
+
+<string name="descripcionRegistro">This is the registration screen. \n Please enter true data.</string>
+<string name="nombre">Name</string>
+<string name="apellido">Last name</string>
+<string name="DNI">DNI</string>
+<string name="reingrese1">Reentry</string>
+<string name="reingrese">Re-enter the password</string>
+<string name="registrarse">check in</string>
+
+
+<string name="bebida">Drinks</string>
+<string name="principal">Principal</string>
+<string name="snacks">Snacks</string>
+<string name="verPedido">View current order</string>
+<string name="cerrarSesion">Log Out</string>
+
+<string name="precio">Price: </string>
+<string name="productos">Products: </string>
+<string name="enviarPedido">Send the order</string>
+<string name="limpiar">Clean</string>
+<string name="miPedido">My Order</string>
+
+<string name="enviado">Sent</string>
+<string name="aceptar">Ok</string>
+
+<string name="alerta">Alert</string>
+<string name="mensajeError">You have no items to send.</string>
+<string name="mensajeErrorLogin">Mail or password incorrect.</string>
+<string name="mensajeErrorRegistro">There are empty fields.</string>
+<string name="mensajeErrorClaves">The keys have to be the same.</string>
+</resources>

@@ -6,15 +6,15 @@
 
     <item
         android:id="@+id/VerPedido"
-        android:title="Ver Pedido Actual" >
+        android:title="@string/verPedido" >
     </item>
-    <item android:id="@+id/LogOut" android:title="LogOut" >
+    <item android:id="@+id/LogOut" android:title="@string/cerrarSesion" >
     </item>
-    <item android:id="@+id/bebida" android:title="Cafe/Bebidas 1"  app:showAsAction="always" >
+    <item android:id="@+id/bebida" android:title="@string/bebida"  app:showAsAction="always" >
         </item>
-    <item android:id="@+id/menu" android:title="Menu´s" app:showAsAction="always">
+    <item android:id="@+id/menu" android:title="@string/principal" app:showAsAction="always">
     </item>
-    <item android:id="@+id/snacks" android:title="Snacks" app:showAsAction="always">
+    <item android:id="@+id/snacks" android:title="@string/snacks" app:showAsAction="always">
     </item>
 
 

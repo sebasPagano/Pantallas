@@ -16,8 +16,9 @@ import com.example.alumno.pantallas.pojo.Persona;
 
 public class ControladorRegistro {
 
-    MyListener listener;
-    ModeloRegistro modelo;
+    private MyListener listener;
+    private ModeloRegistro modelo;
+    private boolean valida;
     public ControladorRegistro(MyListener listener)
     {
         this.listener = listener;
@@ -38,7 +39,7 @@ public class ControladorRegistro {
 
     public void volverAlLogin(View v, String nombre, String apellido, int dni, String clave, String mail)
     {
-        boolean valida = this.Validar(nombre,apellido,dni,clave,mail);
+        valida = this.Validar(nombre,apellido,dni,clave,mail);
         Log.d("valida","validaa"+valida);
         if(valida) {
             Log.d("valida","validaa"+valida);
@@ -51,6 +52,10 @@ public class ControladorRegistro {
             {
                 Log.d("valida","no validaa"+valida);
             }
+    }
+
+    public boolean isValida() {
+        return valida;
     }
 
     public void setModeloRegistro(ModeloRegistro modelo)

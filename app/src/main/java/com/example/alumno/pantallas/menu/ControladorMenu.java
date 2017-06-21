@@ -16,10 +16,16 @@ public class ControladorMenu {
 
     MyListener listener;
     ModeloMenu modeloMenu;
+    View v;
     public ControladorMenu(MyListener listener)
     {
         this.listener = listener;
 
+    }
+
+    public void setView(View view)
+    {
+        this.v = view;
     }
 
     public MyListener getListener(){
@@ -30,7 +36,7 @@ public class ControladorMenu {
     {
         this.modeloMenu = modelo;
     }
-    public void irAPedido(View v)
+    public void irAPedido()
     {
         if(modeloMenu.ListaNoEsNull() == true) {
             Context con = v.getContext();

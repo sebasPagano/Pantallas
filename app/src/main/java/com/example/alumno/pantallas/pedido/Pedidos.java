@@ -27,6 +27,7 @@ import java.util.Set;
 public class Pedidos extends AppCompatActivity {
 
     ControladorPedido controladorPedido;
+    VistaPedido vistaPedido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,7 @@ public class Pedidos extends AppCompatActivity {
         MyAdapterPedidos adapter = new MyAdapterPedidos(Listados.listaProductoDelPedido,this);
         rv.setAdapter(adapter);
 
-        VistaPedido vistaPedido = new VistaPedido(this);
+        vistaPedido = new VistaPedido(this);
        controladorPedido = new ControladorPedido(new MyListener(vistaPedido));
         vistaPedido.setControladorPedido(controladorPedido);
 
@@ -81,10 +82,9 @@ public class Pedidos extends AppCompatActivity {
 
         if(item.getItemId() == R.id.AceptarPedido) {
 
-            View v = this.getLayoutInflater().inflate(R.layout.activity_pedido, null);
-            controladorPedido.setView(v);
+
             if(Listados.listaProductoDelPedido.size() != 0) {
-                Log.d("cantida",""+Listados.listaProductoDelPedido.size());
+                /*Log.d("cantida",""+Listados.listaProductoDelPedido.size());
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Enviado!");
                 builder.setMessage("Aceptado pedido");
@@ -98,10 +98,12 @@ public class Pedidos extends AppCompatActivity {
 
 
                 AlertDialog ad = builder.create();
-                ad.show();
+                ad.show();*/
+              vistaPedido.MostrarMensaje();
             }else
             {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                vistaPedido.MostrarMensajeError();
+                /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("No puede enviar 0 productos!");
                 builder.setMessage("No tiene elementos");
                 ListenerAlert l = new ListenerAlert();
@@ -112,7 +114,7 @@ public class Pedidos extends AppCompatActivity {
                             }
                         });
                 AlertDialog ad = builder.create();
-                ad.show();
+                ad.show();*/
 
             }
 

@@ -28,26 +28,35 @@ public class VistaMenu {
     private TextView precioTotal;
     private ControladorMenu controladorMenu;
     private Activity a;
+    private View v;
     public VistaMenu(Activity a)
     {
         this.a  = a;
+        this.v = a.getLayoutInflater().inflate(R.layout.activity_pedido, null);
         btn = (Button) this.a.findViewById(R.id.btnEnviarPedido);
         cantidadSeleccionada = (TextView) this.a.findViewById(R.id.cantidad);
         precioTotal =(TextView) this.a.findViewById(R.id.sumaPrecio);
         View.OnClickListener listener = new MyListener(this);
+
         btn.setOnClickListener(listener);
     }
-    public void enviandoPedido(View v)
+    public void enviandoPedido()
     {
 
-        controladorMenu.irAPedido(v);
+
+        controladorMenu.setView(this.v);
+        controladorMenu.irAPedido();
         if(Listados.listaProductoDelPedido.size() == 0) {
 
+            String alerta = a.getString(R.string.alerta);
+            String aceptar = a.getString(R.string.aceptar);
+            String mensajeError = a.getString(R.string.mensajeError);
+
             AlertDialog.Builder builder = new AlertDialog.Builder(a);
-            builder.setTitle("No puede enviar 0 productos!");
-            builder.setMessage("No tiene productos seleccionados");
+            builder.setTitle(alerta+"!!!");
+            builder.setMessage(mensajeError);
             ListenerAlert l = new ListenerAlert();
-            builder.setPositiveButton("OK", l);
+            builder.setPositiveButton(aceptar, l);
             AlertDialog ad = builder.create();
             ad.show();
         }
