@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
 
                 }
                 for(Producto pr : Listados.listaProductos) {
-                    Log.d("Producto",pr.getNombre()+"-"+pr.getTipoMenu()+"-"+pr.getPrecio2()+"-"+pr.getImagen());
+                    Log.d("Producto",pr.getNombre()+"-"+pr.getTipoMenu()+"-"+pr.getPrecio()+"-"+pr.getImagen());
 
                 }
                 //     Persona p =(Persona) msg.obj;

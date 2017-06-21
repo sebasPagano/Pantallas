@@ -7,23 +7,22 @@ package com.example.alumno.pantallas.pojo;
 public class Producto {
 
     private String Nombre;
-    private int Precio;
     private int ruta;
     private String tipoMenu;
-    private double precio2;
+    private double precio;
     private String imagen;
 
 
-    public Producto(String nombre, int precio)
+    public Producto(String nombre, double precio)
     {
         this.Nombre = nombre;
-        this.Precio = precio;
+        this.precio = precio;
         //@drawable/usuario
     }
-    public Producto(String nombre, int precio,int ruta)
+    public Producto(String nombre, double precio,int ruta)
     {
         this.Nombre = nombre;
-        this.Precio = precio;
+        this.precio = precio;
         this.ruta = ruta;
 
         //@drawable/usuario
@@ -31,7 +30,7 @@ public class Producto {
     public Producto(String nombre,String tipoMenu,double precio,String imagen)
     {
         this.Nombre = nombre;
-        this.precio2 = precio;
+        this.precio = precio;
         this.imagen = imagen;
         this.tipoMenu = tipoMenu;
 
@@ -49,21 +48,17 @@ public class Producto {
 
         Nombre = nombre;
     }
-    public int getPrecio() {
-        return Precio;
+    public double getPrecio() {
+        return precio;
     }
 
     public void setPrecio(int precio) {
-        Precio = precio;
+        precio = precio;
     }
 
     public int getRuta()
     {
         return this.ruta;
-    }
-
-    public double getPrecio2() {
-        return precio2;
     }
 
     public String getImagen() {

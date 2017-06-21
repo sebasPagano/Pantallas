@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/TP-master.iml" filepath="$PROJECT_DIR$/TP-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/TpJava.iml" filepath="$PROJECT_DIR$/TpJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tpGit.iml" filepath="$PROJECT_DIR$/tpGit.iml" />
     </modules>
   </component>
 </project>

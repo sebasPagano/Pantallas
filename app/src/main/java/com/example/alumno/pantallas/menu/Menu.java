@@ -71,10 +71,18 @@ ControladorMenu controladorMenu;
         if(item.getItemId() == R.id.menu) {
             Log.d("MENU", "opcion del menu");
 
-            listaProducto.add(new Producto("Pizza de Mozzarella",(int) 110,R.drawable.mozzarella));
+            for(Producto p : Listados.listaProductos)
+            {
+                if(p.getTipoMenu().equals("Principal"))
+                {
+                    listaProducto.add(p);
+                }
+            }
+
+           /* listaProducto.add(new Producto("Pizza de Mozzarella",(int) 110,R.drawable.mozzarella));
             listaProducto.add(new Producto("Pizza de Fugazetta",(int) 120,R.drawable.fugazza));
             listaProducto.add(new Producto("Pizza Napolitana",(int) 130,R.drawable.napolitana));
-            listaProducto.add(new Producto("Empanadas",(int) 300,R.drawable.empanadas));
+            listaProducto.add(new Producto("Empanadas",(int) 300,R.drawable.empanadas));*/
 
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
@@ -84,9 +92,16 @@ ControladorMenu controladorMenu;
         if(item.getItemId() == R.id.bebida) {
             Log.d("BEBIDA", "opcion del menu");
 
-            listaProducto.add(new Producto("Sprite",(int) 40,R.drawable.sprite));
+            for(Producto p : Listados.listaProductos)
+            {
+                if(p.getTipoMenu().equals("Bebida"))
+                {
+                    listaProducto.add(p);
+                }
+            }
+            /*listaProducto.add(new Producto("Sprite",(int) 40,R.drawable.sprite));
             listaProducto.add(new Producto("Coca Cola",(int) 50,R.drawable.cocacola));
-            listaProducto.add(new Producto("Heineken",(int) 60,R.drawable.heineken));
+            listaProducto.add(new Producto("Heineken",(int) 60,R.drawable.heineken));*/
 
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
@@ -95,12 +110,19 @@ ControladorMenu controladorMenu;
         }
         if(item.getItemId() == R.id.snacks) {
 
+            for(Producto p : Listados.listaProductos)
+            {
+                if(p.getTipoMenu().equals("Snack"))
+                {
+                    listaProducto.add(p);
+                }
+            }
             Log.d("snacks", "opcion del menu");
-            listaProducto.add(new Producto("Chizitos",(int) 30,R.drawable.chizitos));
+         /*   listaProducto.add(new Producto("Chizitos",(int) 30,R.drawable.chizitos));
             listaProducto.add(new Producto("Palitos",(int) 30,R.drawable.palitos));
             listaProducto.add(new Producto("Nachos con Cheddar",(int) 60,R.drawable.nachos));
             listaProducto.add(new Producto("Snacks",(int) 30,R.drawable.snacks));
-
+*/
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
             return super.onOptionsItemSelected(item);
