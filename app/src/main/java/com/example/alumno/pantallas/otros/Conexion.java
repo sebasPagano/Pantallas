@@ -1,4 +1,4 @@
-package com.example.alumno.pantallas;
+package com.example.alumno.pantallas.otros;
 
 import android.util.Log;
 

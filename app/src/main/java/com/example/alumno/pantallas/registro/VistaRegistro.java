@@ -2,18 +2,13 @@ package com.example.alumno.pantallas.registro;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.alumno.pantallas.ListenerAlert;
-import com.example.alumno.pantallas.MyListener;
+import com.example.alumno.pantallas.otros.ListenerAlert;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.R;
-import com.example.alumno.pantallas.login.MainActivity;
-import com.example.alumno.pantallas.pojo.Persona;
 
 /**
  * Created by sepagano on 30/5/2017.
@@ -67,34 +62,43 @@ public class VistaRegistro {
             controladorRegistro.volverAlLogin(v,nombre,apellido,dni,clave,mail);
         }else
         {
-            String alerta = a.getString(R.string.alerta);
-            String aceptar = a.getString(R.string.aceptar);
-            String mensajeError = a.getString(R.string.mensajeErrorClaves);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(a);
-            builder.setTitle(alerta+"!!!");
-            builder.setMessage(mensajeError);
-            ListenerAlert l = new ListenerAlert();
-            builder.setPositiveButton(aceptar, l);
-            AlertDialog ad = builder.create();
-            ad.show();
+            this.MostrarMensajeClaveDiferente();
         }
         if(!controladorRegistro.isValida() && clave.equals(reingreseClave))
         {
-            String alerta = a.getString(R.string.alerta);
-            String aceptar = a.getString(R.string.aceptar);
-            String mensajeError = a.getString(R.string.mensajeErrorRegistro);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(a);
-            builder.setTitle(alerta+"!!!");
-            builder.setMessage(mensajeError);
-            ListenerAlert l = new ListenerAlert();
-            builder.setPositiveButton(aceptar, l);
-            AlertDialog ad = builder.create();
-            ad.show();
+            this.MostrarMensajeErrorCamposVacios();
         }
 
     }
+    public void MostrarMensajeErrorCamposVacios() {
+        String alerta = a.getString(R.string.alerta);
+        String aceptar = a.getString(R.string.aceptar);
+        String mensajeError = a.getString(R.string.mensajeErrorRegistro);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(a);
+        builder.setTitle(alerta + "!!!");
+        builder.setMessage(mensajeError);
+        ListenerAlert l = new ListenerAlert();
+        builder.setPositiveButton(aceptar, l);
+        AlertDialog ad = builder.create();
+        ad.show();
+    }
+
+    public void MostrarMensajeClaveDiferente()
+    {
+        String alerta = a.getString(R.string.alerta);
+        String aceptar = a.getString(R.string.aceptar);
+        String mensajeError = a.getString(R.string.mensajeErrorClaves);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(a);
+        builder.setTitle(alerta+"!!!");
+        builder.setMessage(mensajeError);
+        ListenerAlert l = new ListenerAlert();
+        builder.setPositiveButton(aceptar, l);
+        AlertDialog ad = builder.create();
+        ad.show();
+    }
+
 
     public void setControladorRegistro(ControladorRegistro con)
     {

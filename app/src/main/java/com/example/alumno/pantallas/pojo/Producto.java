@@ -15,28 +15,7 @@ public class Producto {
     private String imagen;
     private Bitmap bitmap;
 
-    public Bitmap getBitmap() {
-        return bitmap;
-    }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
-    }
-
-    public Producto(String nombre, double precio)
-    {
-        this.Nombre = nombre;
-        this.precio = precio;
-        //@drawable/usuario
-    }
-    public Producto(String nombre, double precio,int ruta)
-    {
-        this.Nombre = nombre;
-        this.precio = precio;
-        this.ruta = ruta;
-
-        //@drawable/usuario
-    }
     public Producto(String nombre,String tipoMenu,double precio,String imagen)
     {
         this.Nombre = nombre;
@@ -70,12 +49,14 @@ public class Producto {
         precio = precio;
     }
 
-    public int getRuta()
-    {
-        return this.ruta;
-    }
-
     public String getImagen() {
         return imagen;
+    }
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 }

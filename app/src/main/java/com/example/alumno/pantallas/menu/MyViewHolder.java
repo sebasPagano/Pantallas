@@ -23,24 +23,16 @@ import java.util.List;
 public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
-    TextView tvNombre;
-    TextView tvPrecio;
-    ImageView ivImagen;
-    FloatingActionButton btnAgregar;
-    Producto producto;
+    public TextView tvNombre;
+    public TextView tvPrecio;
+    public ImageView ivImagen;
+    public FloatingActionButton btnAgregar;
+    private Producto producto;
     private int position;
-    TextView cantidad;
-    TextView precioTotal;
+    private TextView cantidad;
+    private TextView precioTotal;
 
 
-    public MyViewHolder(View itemView)
-    {
-        super(itemView);
-        tvNombre = (TextView) itemView.findViewById(R.id.tvNombre);
-        tvPrecio = (TextView) itemView.findViewById(R.id.tvPrecio);
-        ivImagen = (ImageView) itemView.findViewById(R.id.IVimagen);
-        btnAgregar = (FloatingActionButton ) itemView.findViewById(R.id.btnAgregarProducto);
-    }
     public MyViewHolder(View itemView, Activity a)
     {
 
@@ -56,11 +48,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
 
 
-
     @Override
     public void onClick(View v) {
 
-        Log.d("Hizo click en la vista","ASD");
         double suma = 0;
         if(v.getId() == R.id.btnAgregarProducto)
         {
@@ -73,7 +63,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
             {
                 suma = suma + prod.getPrecio();
             }
-            precioTotal.setText(String.valueOf(suma));
+            precioTotal.setText(String.valueOf(suma)+"$");
 
         }
 

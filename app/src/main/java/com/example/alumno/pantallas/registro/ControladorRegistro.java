@@ -3,10 +3,9 @@ package com.example.alumno.pantallas.registro;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 
-import com.example.alumno.pantallas.MyListener;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.login.MainActivity;
 import com.example.alumno.pantallas.pojo.Persona;
 

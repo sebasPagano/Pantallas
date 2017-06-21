@@ -7,26 +7,20 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.alumno.pantallas.JsonPar;
-import com.example.alumno.pantallas.MyListener;
-import com.example.alumno.pantallas.ThreadConexion;
+import com.example.alumno.pantallas.otros.MyListener;
+import com.example.alumno.pantallas.otros.ThreadConexion;
 import com.example.alumno.pantallas.pojo.Listados;
 import com.example.alumno.pantallas.pojo.Persona;
 import com.example.alumno.pantallas.R;
 import com.example.alumno.pantallas.pojo.Producto;
-import com.example.alumno.pantallas.registro.ControladorRegistro;
-import com.example.alumno.pantallas.registro.ModeloRegistro;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity  implements  Handler.Callback {
 
 
-    int contador = 0;
+    private int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +35,7 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
         controladorLogin.setModeloLogin(modeloLogin);
         vista.setControladorLogin(controladorLogin);
 
-
-
-       Handler handler = new Handler(this);
-
-      //  ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler,2);
-       // Thread t = new Thread(s1);
+        Handler handler = new Handler(this);
         ThreadConexion s1 = new ThreadConexion("http://www.mocky.io/v2/5947c614110000a10a117477",handler,2);
         Thread t = new Thread(s1);
         ThreadConexion s2 = new ThreadConexion("http://www.mocky.io/v2/5947d7d11100004e0c117504",handler,3);
@@ -120,16 +109,6 @@ public class MainActivity extends AppCompatActivity  implements  Handler.Callbac
                         i++;
                     }
                 }
-
-
-
-                //     Persona p =(Persona) msg.obj;
-              //  Producto pr = productos.get(0);
-                //   String nombre = (String)msg.obj;
-
-
-
-
                 break;
         }
 

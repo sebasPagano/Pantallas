@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.alumno.pantallas.MyListener;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.menu.Menu;
 import com.example.alumno.pantallas.registro.Registro;
 
@@ -17,6 +17,7 @@ public class ControladorLogin {
     private MyListener listener;
     private  ModeloLogin modeloLogin;
     private boolean tieneAcceso;
+
     public ControladorLogin(MyListener listener)
     {
         this.listener = listener;
@@ -26,10 +27,9 @@ public class ControladorLogin {
         this.modeloLogin = m;
     }
 
-    public MyListener getListener(){
-        return this.listener;
+    public boolean isTieneAcceso() {
+        return tieneAcceso;
     }
-
 
     public void irRegistrar(View v) {
         Context con = v.getContext();
@@ -46,7 +46,5 @@ public class ControladorLogin {
         }
     }
 
-    public boolean isTieneAcceso() {
-        return tieneAcceso;
-    }
+
 }

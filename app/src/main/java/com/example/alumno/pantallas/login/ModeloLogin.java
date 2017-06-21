@@ -11,16 +11,16 @@ import com.example.alumno.pantallas.pojo.Persona;
 
 public class ModeloLogin {
 
-    Listados listados;
+
     public ModeloLogin()
     {
-        listados = Listados.getListados();
+
     }
     public boolean encontrarUsuario(String mail, String clave)
     {
         for(Persona pe : Listados.listaPersonas)
         {
-            Log.d("hola",pe.toString());
+            Log.d("Persona",pe.toString());
 
             if(pe.getMail().toString().equals(mail) && pe.getClave().toString().equals(clave))
             {

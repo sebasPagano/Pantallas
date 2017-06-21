@@ -36,14 +36,7 @@ public class Listados {
         }
         return listados;
     }
-    public static List<Producto> getListaProductos()
-    {
-        return listaProductoDelPedido;
-    }
-    public void setListaProductos(List<Producto> lista)
-    {
-        listaProductoDelPedido = lista;
-    }
+
 
 
 }

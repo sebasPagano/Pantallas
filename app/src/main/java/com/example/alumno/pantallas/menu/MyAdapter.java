@@ -23,13 +23,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
 
     List<Producto> listaProductos;
-    private Button btn;
     private Activity a;
 
-    public MyAdapter(List<Producto> lista)
-    {
-        this.listaProductos = lista;
-    }
     public MyAdapter(List<Producto> lista, Activity a)
     {
         this.listaProductos = lista;

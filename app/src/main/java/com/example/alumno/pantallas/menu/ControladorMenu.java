@@ -1,11 +1,10 @@
 package com.example.alumno.pantallas.menu;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.alumno.pantallas.MyListener;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.pedido.Pedidos;
 
 /**
@@ -14,9 +13,10 @@ import com.example.alumno.pantallas.pedido.Pedidos;
 
 public class ControladorMenu {
 
-    MyListener listener;
-    ModeloMenu modeloMenu;
-    View v;
+    private MyListener listener;
+    private ModeloMenu modeloMenu;
+    private View v;
+
     public ControladorMenu(MyListener listener)
     {
         this.listener = listener;
@@ -28,14 +28,11 @@ public class ControladorMenu {
         this.v = view;
     }
 
-    public MyListener getListener(){
-        return this.listener;
-    }
-
     public void setModeloMenu(ModeloMenu modelo)
     {
         this.modeloMenu = modelo;
     }
+
     public void irAPedido()
     {
         if(modeloMenu.ListaNoEsNull() == true) {

@@ -1,6 +1,5 @@
 package com.example.alumno.pantallas.menu;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,15 +7,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Display;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.alumno.pantallas.ListenerAlert;
-import com.example.alumno.pantallas.MyListener;
-import com.example.alumno.pantallas.login.ControladorLogin;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.pedido.Pedidos;
 import com.example.alumno.pantallas.R;
 import com.example.alumno.pantallas.login.MainActivity;
@@ -28,8 +21,8 @@ import java.util.List;
 
 public class Menu extends AppCompatActivity {
 
-ControladorMenu controladorMenu;
-    VistaMenu vistaMenu;
+    private ControladorMenu controladorMenu;
+    private VistaMenu vistaMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +74,6 @@ ControladorMenu controladorMenu;
                 }
             }
 
-           /* listaProducto.add(new Producto("Pizza de Mozzarella",(int) 110,R.drawable.mozzarella));
-            listaProducto.add(new Producto("Pizza de Fugazetta",(int) 120,R.drawable.fugazza));
-            listaProducto.add(new Producto("Pizza Napolitana",(int) 130,R.drawable.napolitana));
-            listaProducto.add(new Producto("Empanadas",(int) 300,R.drawable.empanadas));*/
-
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
             return super.onOptionsItemSelected(item);
@@ -101,9 +89,6 @@ ControladorMenu controladorMenu;
                     listaProducto.add(p);
                 }
             }
-            /*listaProducto.add(new Producto("Sprite",(int) 40,R.drawable.sprite));
-            listaProducto.add(new Producto("Coca Cola",(int) 50,R.drawable.cocacola));
-            listaProducto.add(new Producto("Heineken",(int) 60,R.drawable.heineken));*/
 
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
@@ -120,11 +105,7 @@ ControladorMenu controladorMenu;
                 }
             }
             Log.d("snacks", "opcion del menu");
-         /*   listaProducto.add(new Producto("Chizitos",(int) 30,R.drawable.chizitos));
-            listaProducto.add(new Producto("Palitos",(int) 30,R.drawable.palitos));
-            listaProducto.add(new Producto("Nachos con Cheddar",(int) 60,R.drawable.nachos));
-            listaProducto.add(new Producto("Snacks",(int) 30,R.drawable.snacks));
-*/
+
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
             return super.onOptionsItemSelected(item);
@@ -137,14 +118,6 @@ ControladorMenu controladorMenu;
         if(item.getItemId() == R.id.VerPedido) {
             if(Listados.listaProductoDelPedido.size() == 0) {
 
-                /*
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("No puede enviar 0 productos!");
-                builder.setMessage("No tiene productos seleccionados");
-                ListenerAlert l = new ListenerAlert();
-                builder.setPositiveButton("OK", l);
-                AlertDialog ad = builder.create();
-                ad.show();*/
                 vistaMenu.enviandoPedido();
             }else {
                 intent.setClass(this, Pedidos.class);

@@ -2,13 +2,12 @@ package com.example.alumno.pantallas.login;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.alumno.pantallas.ListenerAlert;
-import com.example.alumno.pantallas.MyListener;
+import com.example.alumno.pantallas.otros.ListenerAlert;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.R;
 
 /**

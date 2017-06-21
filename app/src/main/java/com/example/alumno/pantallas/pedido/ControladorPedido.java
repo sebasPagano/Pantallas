@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.alumno.pantallas.MyListener;
+import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.menu.Menu;
-import com.example.alumno.pantallas.menu.ModeloMenu;
 
 /**
  * Created by sepagano on 31/5/2017.
@@ -14,17 +13,10 @@ import com.example.alumno.pantallas.menu.ModeloMenu;
 
 public class ControladorPedido {
 
-    MyListener listener;
-    ModeloPedido modeloPedido;
-    VistaPedido vistaPedido;
-    View v;
-    public void setVistaPedido(VistaPedido vistaPedido) {
-        this.vistaPedido = vistaPedido;
-    }
-
-    public void setModeloPedido(ModeloPedido modeloPedido) {
-        this.modeloPedido = modeloPedido;
-    }
+    private MyListener listener;
+    private ModeloPedido modeloPedido;
+    private VistaPedido vistaPedido;
+    private View v;
 
 
     public ControladorPedido(MyListener listener)
@@ -33,20 +25,26 @@ public class ControladorPedido {
 
     }
 
-    public MyListener getListener(){
-        return this.listener;
+    public void irAMenu()
+    {
+        Context con = v.getContext();
+        Intent i = new Intent(con, Menu.class);
+        con.startActivity(i);
     }
 
     public void setView(View view)
     {
         this.v = view;
     }
-    public void irAMenu()
-    {
-            Context con = v.getContext();
-            Intent i = new Intent(con, Menu.class);
-            con.startActivity(i);
+    public MyListener getListener(){
+        return this.listener;
+    }
+    public void setVistaPedido(VistaPedido vistaPedido) {
+        this.vistaPedido = vistaPedido;
+    }
 
+    public void setModeloPedido(ModeloPedido modeloPedido) {
+        this.modeloPedido = modeloPedido;
     }
 
 }

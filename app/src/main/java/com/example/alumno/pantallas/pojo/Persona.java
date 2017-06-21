@@ -17,12 +17,6 @@ public class Persona {
 
     public Persona()
     {}
-    public Persona(String mail, String clave)
-    {
-
-        this.mail = mail;
-        this.clave = clave;
-    }
 
     public Persona(String nombre, String apellido, long dni,String mail, String clave)
     {

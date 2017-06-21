@@ -1,4 +1,4 @@
-package com.example.alumno.pantallas;
+package com.example.alumno.pantallas.otros;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import com.example.alumno.pantallas.R;
 import com.example.alumno.pantallas.login.VistaLogin;
 import com.example.alumno.pantallas.menu.VistaMenu;
 import com.example.alumno.pantallas.pedido.Pedidos;
@@ -19,12 +20,12 @@ import com.example.alumno.pantallas.registro.VistaRegistro;
 
 public class MyListener implements View.OnClickListener {
 
-    Activity a;
-    FragmentManager fr;
-    VistaLogin vistaLogin;
-    VistaRegistro vistaRegistro;
-    VistaMenu vistaMenu;
-    VistaPedido vistaPedido;
+    private Activity a;
+    private VistaLogin vistaLogin;
+    private VistaRegistro vistaRegistro;
+    private VistaMenu vistaMenu;
+    private VistaPedido vistaPedido;
+
     public MyListener(Activity ac)
     {
         this.a = ac;
@@ -68,7 +69,7 @@ public class MyListener implements View.OnClickListener {
         }
         if(v.getId() == R.id.AceptarPedido2)
         {
-            vistaPedido.MostrarMensaje();
+            vistaPedido.enviarPedido();
         }
         if(v.getId() == R.id.btnRegistrarse)
         {

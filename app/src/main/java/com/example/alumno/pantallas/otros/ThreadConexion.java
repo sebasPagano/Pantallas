@@ -1,10 +1,12 @@
-package com.example.alumno.pantallas;
+package com.example.alumno.pantallas.otros;
 
 
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.example.alumno.pantallas.otros.Conexion;
+import com.example.alumno.pantallas.otros.JsonPar;
 import com.example.alumno.pantallas.pojo.Listados;
 
 /**
