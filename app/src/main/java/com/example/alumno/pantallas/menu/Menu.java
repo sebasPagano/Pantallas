@@ -1,6 +1,8 @@
 package com.example.alumno.pantallas.menu;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 
 import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.pedido.Pedidos;
@@ -112,6 +115,10 @@ public class Menu extends AppCompatActivity {
 
         }
         if(item.getItemId() == R.id.LogOut) {
+            SharedPreferences prefs = getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear();
+            editor.commit();
             intent.setClass(this, MainActivity.class);
             startActivity(intent);
         }

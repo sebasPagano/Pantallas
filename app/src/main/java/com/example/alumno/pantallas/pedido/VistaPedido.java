@@ -72,7 +72,7 @@ public class VistaPedido {
         AlertDialog.Builder builder = new AlertDialog.Builder(a);
         builder.setTitle(enviado+"!!!");
 
-        builder.setMessage(cantidad+productosTotal.getText()+"\n\n"+precio+precioTotal.getText()+"$");
+        builder.setMessage(cantidad+productosTotal.getText()+"\n\n"+precio+precioTotal.getText());
         ListenerAlert l = new ListenerAlert();
         builder.setPositiveButton(aceptar,
                 new DialogInterface.OnClickListener() {

@@ -1,6 +1,8 @@
 package com.example.alumno.pantallas.pedido;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -49,6 +51,10 @@ public class Pedidos extends AppCompatActivity {
 
         Intent intent = new Intent();
         if(item.getItemId() == R.id.LogOut2) {
+            SharedPreferences prefs = getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear();
+            editor.commit();
             intent.setClass(this, MainActivity.class);
             startActivity(intent);
         }

@@ -45,25 +45,25 @@ public class ThreadConexion implements Runnable {
             switch (opcion) {
                 case 1:
                     synchronized (this) {
-                        msg.obj = conexion.getBytesDateByGET(this.url);
+                        msg.obj = conexion.getBytesDateByGETImagen(this.url);
                         msg.arg1 = 1;
                     }
                 break;
 
                 case 2:
-                    if(Listados.listaPersonas.size()==0) {
+                    if(Listados.listaPersonas.size()==0 || Listados.listaPersonas.size()==1) {
                         Log.d("Que pasa", "llamando a getbytes");
-                        strRespuesta = conexion.getBytesDateByGET2(this.url);
+                        strRespuesta = conexion.getBytesDateByGETString(this.url);
                         Log.d("Que pasa", strRespuesta);
 
                         msg.arg1 = 2;
 
-                        msg.obj = jsonPar.parsear(strRespuesta);
+                        msg.obj = jsonPar.parsearUsuarios(strRespuesta);
                     }
                     break;
                 case 3:
                     if(Listados.listaProductos.size() == 0) {
-                        strRespuesta = conexion.getBytesDateByGET2(this.url);
+                        strRespuesta = conexion.getBytesDateByGETString(this.url);
                         Log.d("Que pasa", strRespuesta);
                         msg.arg1 = 3;
                         msg.obj = jsonPar.parsearProductos(strRespuesta);

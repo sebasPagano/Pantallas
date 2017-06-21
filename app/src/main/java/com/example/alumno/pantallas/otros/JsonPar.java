@@ -17,7 +17,7 @@ import java.util.List;
 
 public class JsonPar {
 
-    public List<Persona> parsear(String str){
+    public List<Persona> parsearUsuarios(String str){
         List<Persona> lista = new ArrayList<>();
         try {
 

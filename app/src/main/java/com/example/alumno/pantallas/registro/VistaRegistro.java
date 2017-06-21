@@ -30,7 +30,7 @@ public class VistaRegistro {
     public VistaRegistro(Activity a)
     {
         this.a = a;
-        this.v = a.getLayoutInflater().inflate(R.layout.activity_main, null);
+        this.v = a.getLayoutInflater().inflate(R.layout.activity_login, null);
         editTextNombre = (EditText) a.findViewById(R.id.editTextNombre);
         editTextApellido = (EditText) a.findViewById(R.id.editTextApellido);
         editTextClave = (EditText) a.findViewById(R.id.editClave);

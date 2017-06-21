@@ -2,8 +2,11 @@ package com.example.alumno.pantallas.login;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.alumno.pantallas.otros.ListenerAlert;
@@ -25,6 +28,7 @@ public class VistaLogin {
     private ModeloLogin modelo;
     private View v;
     private View vR;
+    private CheckBox checkBox;
     public VistaLogin(Activity a)
     {
         this.a = a;
@@ -36,14 +40,29 @@ public class VistaLogin {
         editTextClave.setText("123123");
         btnIngresar =(Button) a.findViewById(R.id.btnIngresar);
         btnRegistrarme =(Button) a.findViewById(R.id.btnRegistro);
+        checkBox = (CheckBox) a.findViewById(R.id.checkBox);
         View.OnClickListener listener = new MyListener(this);
         btnIngresar.setOnClickListener(listener);
         btnRegistrarme.setOnClickListener(listener);
 
+        SharedPreferences prefs = a.getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+        boolean datoStr = prefs.getBoolean("recordarme",false);
+        //la base de datos al ser una lista, estos datos se mantendran en memoria pero no en la lista
+        //asi que al ingresar denuevo en la aplicacion recordara al usuario pero no te permitira logiar
+        //dado que no se encuentra en dicha lista.
+        if(datoStr==true) {
+            String mail = prefs.getString("correo","default_value");
+            String clave= prefs.getString("clave","default_value");
+             editTextMail.setText(mail);
+             editTextClave.setText(clave);
+        }
+
     }
     public void ingresar()
     {
+        controladorLogin.setA(a);
         controladorLogin.irMenu(this.v,editTextMail.getText().toString(),editTextClave.getText().toString());
+
 
         if(!controladorLogin.isTieneAcceso())
         {
@@ -73,5 +92,9 @@ public class VistaLogin {
     public void setControladorLogin(ControladorLogin con)
     {
         this.controladorLogin = con;
+    }
+
+    public boolean getValidaCheckbox() {
+        return checkBox.isChecked();
     }
 }

@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class Conexion {
 
-    public byte[] getBytesDateByGET(String strUrl) throws IOException{
+    public byte[] getBytesDateByGETImagen(String strUrl) throws IOException{
 // es sincronico
         URL url = new URL(strUrl);
 
@@ -46,7 +46,7 @@ public class Conexion {
 
     }
 
-    public String getBytesDateByGET2(String strUrl) throws IOException{
+    public String getBytesDateByGETString(String strUrl) throws IOException{
 // es sincronico
         URL url = new URL(strUrl);
 
