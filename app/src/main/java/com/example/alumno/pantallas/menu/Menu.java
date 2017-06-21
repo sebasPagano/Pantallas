@@ -1,5 +1,6 @@
 package com.example.alumno.pantallas.menu;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.alumno.pantallas.ListenerAlert;
 import com.example.alumno.pantallas.MyListener;
 import com.example.alumno.pantallas.login.ControladorLogin;
 import com.example.alumno.pantallas.pedido.Pedidos;
@@ -133,8 +135,19 @@ ControladorMenu controladorMenu;
             startActivity(intent);
         }
         if(item.getItemId() == R.id.VerPedido) {
-            intent.setClass(this, Pedidos.class);
-            startActivity(intent);
+            if(Listados.listaProductoDelPedido.size() == 0) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("No puede enviar 0 productos!");
+                builder.setMessage("No tiene productos seleccionados");
+                ListenerAlert l = new ListenerAlert();
+                builder.setPositiveButton("OK", l);
+                AlertDialog ad = builder.create();
+                ad.show();
+            }else {
+                intent.setClass(this, Pedidos.class);
+                startActivity(intent);
+            }
         }
         if(item.getItemId() == android.R.id.home) {
             intent.setClass(this, MainActivity.class);

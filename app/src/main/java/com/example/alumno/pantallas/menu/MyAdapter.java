@@ -51,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         Producto p = listaProductos.get(position);
         holder.tvNombre.setText(p.getNombre());
         holder.tvPrecio.setText(""+p.getPrecio()+"$");
-      //  holder.ivImagen.setImageResource(p.getRuta());
+        holder.ivImagen.setImageBitmap(p.getBitmap());
         holder.setPositionYProducto(position,p);
 
 

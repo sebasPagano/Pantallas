@@ -1,5 +1,7 @@
 package com.example.alumno.pantallas.pojo;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Pagano on 01/05/2017.
  */
@@ -11,7 +13,15 @@ public class Producto {
     private String tipoMenu;
     private double precio;
     private String imagen;
+    private Bitmap bitmap;
 
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
 
     public Producto(String nombre, double precio)
     {
@@ -35,6 +45,10 @@ public class Producto {
         this.tipoMenu = tipoMenu;
 
         //@drawable/usuario
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getTipoMenu() {

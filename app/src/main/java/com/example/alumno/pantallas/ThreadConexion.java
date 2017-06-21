@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.example.alumno.pantallas.pojo.Listados;
+
 /**
  * Created by alumno on 11/05/2017.
  */
@@ -40,31 +42,30 @@ public class ThreadConexion implements Runnable {
             // byte[] arrayByte;
             switch (opcion) {
                 case 1:
-                msg.obj = conexion.getBytesDateByGET(this.url);
-                msg.arg1 = 1;
-
+                    synchronized (this) {
+                        msg.obj = conexion.getBytesDateByGET(this.url);
+                        msg.arg1 = 1;
+                    }
                 break;
 
                 case 2:
+                    if(Listados.listaPersonas.size()==0) {
+                        Log.d("Que pasa", "llamando a getbytes");
+                        strRespuesta = conexion.getBytesDateByGET2(this.url);
+                        Log.d("Que pasa", strRespuesta);
 
+                        msg.arg1 = 2;
 
-                Log.d("Que pasa", "llamando a getbytes");
-                strRespuesta = conexion.getBytesDateByGET2(this.url);
-                Log.d("Que pasa", strRespuesta);
-
-                msg.arg1 = 2;
-
-                msg.obj = jsonPar.parsear(strRespuesta);
+                        msg.obj = jsonPar.parsear(strRespuesta);
+                    }
                     break;
                 case 3:
-
-
-                    strRespuesta = conexion.getBytesDateByGET2(this.url);
-                    Log.d("Que pasa", strRespuesta);
-
-                    msg.arg1 = 3;
-
-                    msg.obj = jsonPar.parsearProductos(strRespuesta);
+                    if(Listados.listaProductos.size() == 0) {
+                        strRespuesta = conexion.getBytesDateByGET2(this.url);
+                        Log.d("Que pasa", strRespuesta);
+                        msg.arg1 = 3;
+                        msg.obj = jsonPar.parsearProductos(strRespuesta);
+                    }
                     break;
 
 

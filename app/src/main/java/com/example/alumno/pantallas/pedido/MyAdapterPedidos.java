@@ -47,7 +47,7 @@ public class MyAdapterPedidos extends RecyclerView.Adapter<MyViewHolderPedidos>{
         Producto p = listaProductos.get(position);
         holder.tvNombre.setText(p.getNombre());
         holder.tvPrecio.setText(""+p.getPrecio()+"$");
-        holder.ivImagen.setImageResource(p.getRuta());
+        holder.ivImagen.setImageBitmap(p.getBitmap());
         holder.btnQuitar.setOnClickListener((View.OnClickListener)holder );
         holder.setPositionYProducto(position,p);
 
