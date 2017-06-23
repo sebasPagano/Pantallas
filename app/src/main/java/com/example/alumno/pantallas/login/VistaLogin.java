@@ -19,8 +19,8 @@ import com.example.alumno.pantallas.R;
 
 public class VistaLogin {
 
-    private EditText editTextMail;
-    private EditText editTextClave;
+    public EditText editTextMail;
+    public EditText editTextClave;
     private Button btnIngresar;
     private Button btnRegistrarme;
     private Activity a;
@@ -28,7 +28,7 @@ public class VistaLogin {
     private ModeloLogin modelo;
     private View v;
     private View vR;
-    private CheckBox checkBox;
+    public CheckBox checkBox;
     public VistaLogin(Activity a)
     {
         this.a = a;
@@ -45,44 +45,14 @@ public class VistaLogin {
         btnIngresar.setOnClickListener(listener);
         btnRegistrarme.setOnClickListener(listener);
 
-        SharedPreferences prefs = a.getSharedPreferences("Usuario", Context.MODE_PRIVATE);
-        boolean datoStr = prefs.getBoolean("recordarme",false);
-        //la base de datos al ser una lista, estos datos se mantendran en memoria pero no en la lista
-        //asi que al ingresar denuevo en la aplicacion recordara al usuario pero no te permitira logiar
-        //dado que no se encuentra en dicha lista.
-        if(datoStr==true) {
-            String mail = prefs.getString("correo","default_value");
-            String clave= prefs.getString("clave","default_value");
-             editTextMail.setText(mail);
-             editTextClave.setText(clave);
-        }
+
 
     }
     public void ingresar()
     {
-        controladorLogin.setA(a);
+
         controladorLogin.irMenu(this.v,editTextMail.getText().toString(),editTextClave.getText().toString());
 
-
-        if(!controladorLogin.isTieneAcceso())
-        {
-            this.MostrarMensajeError();
-        }
-    }
-
-    public void MostrarMensajeError()
-    {
-        String alerta = a.getString(R.string.alerta);
-        String aceptar = a.getString(R.string.aceptar);
-        String mensajeError = a.getString(R.string.mensajeErrorLogin);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(a);
-        builder.setTitle(alerta+"!!!");
-        builder.setMessage(mensajeError);
-        ListenerAlert l = new ListenerAlert();
-        builder.setPositiveButton(aceptar, l);
-        AlertDialog ad = builder.create();
-        ad.show();
     }
 
     public void registrar() {
@@ -94,7 +64,5 @@ public class VistaLogin {
         this.controladorLogin = con;
     }
 
-    public boolean getValidaCheckbox() {
-        return checkBox.isChecked();
-    }
+
 }

@@ -75,7 +75,6 @@ public class MyViewHolderPedidos extends RecyclerView.ViewHolder implements View
     {
         Listados.listaProductoDelPedido.clear();
         elementosSeleccionados.setText(String.valueOf(0));
-
         precioTotal.setText(String.valueOf(0.0)+"$");
 
         adapter.notifyDataSetChanged();

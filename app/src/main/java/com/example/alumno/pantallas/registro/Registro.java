@@ -15,9 +15,9 @@ public class Registro extends AppCompatActivity {
 
         ModeloRegistro modeloRegistro = new ModeloRegistro();
         VistaRegistro vistaRegistro =  new VistaRegistro(this);
-        ControladorRegistro controladorRegistro = new ControladorRegistro(new MyListener(vistaRegistro));
+        ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro,modeloRegistro);
         vistaRegistro.setControladorRegistro(controladorRegistro);
-        controladorRegistro.setModeloRegistro(modeloRegistro);
+
 
     }
 

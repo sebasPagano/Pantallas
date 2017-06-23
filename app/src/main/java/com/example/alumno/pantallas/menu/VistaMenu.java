@@ -22,7 +22,7 @@ public class VistaMenu {
     private TextView precioTotal;
     private ControladorMenu controladorMenu;
     private Activity a;
-    private View v;
+    public View v;
     public VistaMenu(Activity a)
     {
         this.a  = a;
@@ -35,24 +35,7 @@ public class VistaMenu {
     }
     public void enviandoPedido()
     {
-
-
-        controladorMenu.setView(this.v);
         controladorMenu.irAPedido();
-        if(Listados.listaProductoDelPedido.size() == 0) {
-
-            String alerta = a.getString(R.string.alerta);
-            String aceptar = a.getString(R.string.aceptar);
-            String mensajeError = a.getString(R.string.mensajeError);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(a);
-            builder.setTitle(alerta+"!!!");
-            builder.setMessage(mensajeError);
-            ListenerAlert l = new ListenerAlert();
-            builder.setPositiveButton(aceptar, l);
-            AlertDialog ad = builder.create();
-            ad.show();
-        }
     }
     public void setControladorMenu(ControladorMenu controlador)
     {

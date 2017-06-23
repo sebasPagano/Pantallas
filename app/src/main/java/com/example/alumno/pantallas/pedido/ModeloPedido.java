@@ -13,15 +13,5 @@ public class ModeloPedido {
 
     }
 
-    public boolean ListaNoEstaVacia()
-    {
-        if(Listados.listaProductoDelPedido.size() != 0)
-        {
-            return true;
-        }
-        return false;
-
-    }
-
 
 }

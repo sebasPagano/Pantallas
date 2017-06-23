@@ -11,13 +11,4 @@ public class ModeloMenu {
     {
 
     }
-    public boolean ListaNoEsNull()
-    {
-        if(Listados.listaProductoDelPedido.size() > 0)
-        {
-            return true;
-        }
-         return false;
-
-    }
 }

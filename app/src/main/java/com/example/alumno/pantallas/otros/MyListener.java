@@ -74,7 +74,7 @@ public class MyListener implements View.OnClickListener {
         if(v.getId() == R.id.btnRegistrarse)
         {
 
-            vistaRegistro.Registrar();
+            vistaRegistro.irARegistro();
         }
 
     }

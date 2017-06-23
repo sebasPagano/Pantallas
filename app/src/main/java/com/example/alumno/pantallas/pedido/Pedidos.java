@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.alumno.pantallas.menu.ModeloMenu;
 import com.example.alumno.pantallas.menu.MyViewHolder;
 import com.example.alumno.pantallas.otros.MyListener;
 import com.example.alumno.pantallas.R;
@@ -35,7 +36,8 @@ public class Pedidos extends AppCompatActivity {
         rv.setAdapter(adapter);
 
         vistaPedido = new VistaPedido(this);
-       controladorPedido = new ControladorPedido(new MyListener(vistaPedido));
+        ModeloPedido modeloPedido = new ModeloPedido();
+       controladorPedido = new ControladorPedido(vistaPedido,modeloPedido,this);
         vistaPedido.setControladorPedido(controladorPedido);
 
 
@@ -51,24 +53,12 @@ public class Pedidos extends AppCompatActivity {
 
         Intent intent = new Intent();
         if(item.getItemId() == R.id.LogOut2) {
-            SharedPreferences prefs = getSharedPreferences("Usuario", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.clear();
-            editor.commit();
-            intent.setClass(this, MainActivity.class);
-            startActivity(intent);
+           controladorPedido.logOut();
         }
         if(item.getItemId() == R.id.AceptarPedido) {
-
-            if(Listados.listaProductoDelPedido.size() != 0) {
-
-              vistaPedido.MostrarMensaje();
-            }else
-            {
-                vistaPedido.MostrarMensajeError();
-
-            }
+            vistaPedido.enviarPedido();
         }
+
         if(item.getItemId() == R.id.Limpiar)
         {
             MyViewHolderPedidos.limpiar();

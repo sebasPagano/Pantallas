@@ -40,8 +40,7 @@ public class Menu extends AppCompatActivity {
         }
         vistaMenu =  new VistaMenu(this);
         ModeloMenu modeloMenu = new ModeloMenu();
-        controladorMenu = new ControladorMenu(new MyListener(vistaMenu));
-        controladorMenu.setModeloMenu(modeloMenu);
+        controladorMenu = new ControladorMenu(vistaMenu,modeloMenu,this);
         vistaMenu.setControladorMenu(controladorMenu);
 
 
@@ -68,14 +67,7 @@ public class Menu extends AppCompatActivity {
 
         if(item.getItemId() == R.id.menu) {
             Log.d("MENU", "opcion del menu");
-
-            for(Producto p : Listados.listaProductos)
-            {
-                if(p.getTipoMenu().equals("Principal"))
-                {
-                    listaProducto.add(p);
-                }
-            }
+            listaProducto = controladorMenu.getListaPrincipal(listaProducto);
 
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
@@ -85,13 +77,8 @@ public class Menu extends AppCompatActivity {
         if(item.getItemId() == R.id.bebida) {
             Log.d("BEBIDA", "opcion del menu");
 
-            for(Producto p : Listados.listaProductos)
-            {
-                if(p.getTipoMenu().equals("Bebida"))
-                {
-                    listaProducto.add(p);
-                }
-            }
+            listaProducto = controladorMenu.getListaBebidas(listaProducto);
+
 
             adapter = new MyAdapter(listaProducto,this);
             rv.setAdapter(adapter);
@@ -100,13 +87,7 @@ public class Menu extends AppCompatActivity {
         }
         if(item.getItemId() == R.id.snacks) {
 
-            for(Producto p : Listados.listaProductos)
-            {
-                if(p.getTipoMenu().equals("Snack"))
-                {
-                    listaProducto.add(p);
-                }
-            }
+            listaProducto =controladorMenu.getListaSnack(listaProducto);
             Log.d("snacks", "opcion del menu");
 
             adapter = new MyAdapter(listaProducto,this);
@@ -115,25 +96,15 @@ public class Menu extends AppCompatActivity {
 
         }
         if(item.getItemId() == R.id.LogOut) {
-            SharedPreferences prefs = getSharedPreferences("Usuario", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.clear();
-            editor.commit();
-            intent.setClass(this, MainActivity.class);
-            startActivity(intent);
+            controladorMenu.logOut();
         }
         if(item.getItemId() == R.id.VerPedido) {
-            if(Listados.listaProductoDelPedido.size() == 0) {
 
-                vistaMenu.enviandoPedido();
-            }else {
-                intent.setClass(this, Pedidos.class);
-                startActivity(intent);
-            }
+            vistaMenu.enviandoPedido();
+
         }
         if(item.getItemId() == android.R.id.home) {
-            intent.setClass(this, MainActivity.class);
-            startActivity(intent);
+            controladorMenu.volverAlLogin();
         }
 
         return false;

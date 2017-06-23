@@ -19,6 +19,7 @@ public class ThreadConexion implements Runnable {
     private String url;
     private Handler handler;
     private int opcion;
+    private int posicion;
 
     public ThreadConexion()
     {
@@ -44,10 +45,11 @@ public class ThreadConexion implements Runnable {
             // byte[] arrayByte;
             switch (opcion) {
                 case 1:
-                    synchronized (this) {
+
                         msg.obj = conexion.getBytesDateByGETImagen(this.url);
                         msg.arg1 = 1;
-                    }
+                        msg.arg2 = posicion;
+
                 break;
 
                 case 2:
@@ -86,5 +88,11 @@ public class ThreadConexion implements Runnable {
         return url;
     }
 
+    public int getPosicion() {
+        return posicion;
+    }
 
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
 }

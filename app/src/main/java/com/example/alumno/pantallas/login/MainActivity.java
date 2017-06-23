@@ -30,15 +30,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         Listados listados = Listados.getListados();
         Listados.listaProductoDelPedido.clear();
         ModeloLogin modeloLogin = new ModeloLogin();
         VistaLogin vista = new VistaLogin(this);
-        ControladorLogin controladorLogin = new ControladorLogin(new MyListener(vista));
-        controladorLogin.setModeloLogin(modeloLogin);
+        ControladorLogin controladorLogin = new ControladorLogin(vista,modeloLogin,this);
         vista.setControladorLogin(controladorLogin);
-        modeloLogin.setVistaLogin(vista);
+
 
 
     }

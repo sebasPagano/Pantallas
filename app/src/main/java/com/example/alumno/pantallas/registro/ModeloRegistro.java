@@ -12,8 +12,5 @@ public class ModeloRegistro {
 
     public ModeloRegistro(){}
 
-    public void agregarUsuario(Persona p)
-    {
-        Listados.listaPersonas.add(p);
-    }
+
 }

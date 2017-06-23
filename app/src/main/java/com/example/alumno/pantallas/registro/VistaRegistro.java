@@ -16,15 +16,15 @@ import com.example.alumno.pantallas.R;
 
 public class VistaRegistro {
 
-    private EditText editTextNombre;
-    private EditText editTextApellido;
-    private EditText editTextDNI;
-    private EditText editTextMail;
-    private EditText editTextClave;
-    private EditText editTextReingreseClave;
+    public EditText editTextNombre;
+    public EditText editTextApellido;
+    public EditText editTextDNI;
+    public EditText editTextMail;
+    public EditText editTextClave;
+    public EditText editTextReingreseClave;
     private Button btnRegistro;
-    private View v;
-    private Activity a;
+    public View v;
+    public Activity a;
     private ControladorRegistro controladorRegistro;
 
     public VistaRegistro(Activity a)
@@ -41,64 +41,10 @@ public class VistaRegistro {
         View.OnClickListener listener = new MyListener(this);
         btnRegistro.setOnClickListener(listener);
     }
-    public void Registrar()
+    public void irARegistro()
     {
-        String apellido = editTextApellido.getText().toString();
-        String nombre = editTextNombre.getText().toString();
-        String clave = editTextClave.getText().toString();
-        String reingreseClave = editTextReingreseClave.getText().toString();
-        String mail = editTextMail.getText().toString();
-        int dni;
-
-        if(editTextDNI.getText().toString().equals("")) {
-            dni = 0;
-        }else
-        {
-            dni = Integer.parseInt(editTextDNI.getText().toString());
-        }
-
-        if(clave.equals(reingreseClave)) {
-
-            controladorRegistro.volverAlLogin(v,nombre,apellido,dni,clave,mail);
-        }else
-        {
-            this.MostrarMensajeClaveDiferente();
-        }
-        if(!controladorRegistro.isValida() && clave.equals(reingreseClave))
-        {
-            this.MostrarMensajeErrorCamposVacios();
-        }
-
+        controladorRegistro.Registrar();
     }
-    public void MostrarMensajeErrorCamposVacios() {
-        String alerta = a.getString(R.string.alerta);
-        String aceptar = a.getString(R.string.aceptar);
-        String mensajeError = a.getString(R.string.mensajeErrorRegistro);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(a);
-        builder.setTitle(alerta + "!!!");
-        builder.setMessage(mensajeError);
-        ListenerAlert l = new ListenerAlert();
-        builder.setPositiveButton(aceptar, l);
-        AlertDialog ad = builder.create();
-        ad.show();
-    }
-
-    public void MostrarMensajeClaveDiferente()
-    {
-        String alerta = a.getString(R.string.alerta);
-        String aceptar = a.getString(R.string.aceptar);
-        String mensajeError = a.getString(R.string.mensajeErrorClaves);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(a);
-        builder.setTitle(alerta+"!!!");
-        builder.setMessage(mensajeError);
-        ListenerAlert l = new ListenerAlert();
-        builder.setPositiveButton(aceptar, l);
-        AlertDialog ad = builder.create();
-        ad.show();
-    }
-
 
     public void setControladorRegistro(ControladorRegistro con)
     {
