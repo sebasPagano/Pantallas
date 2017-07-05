@@ -116,14 +116,13 @@ public class ControladorLogin implements Handler.Callback {
         SharedPreferences prefs = a.getSharedPreferences("Usuario", Context.MODE_PRIVATE);
         boolean datoStr = prefs.getBoolean("recordarme",false);
 
-        //la base de datos al ser una lista, estos datos se mantendran en memoria pero no en la lista
-        //asi que al ingresar denuevo en la aplicacion recordara al usuario pero no te permitira logiar
-        //dado que no se encuentra en dicha lista.
         if(datoStr==true) {
-            String mail = prefs.getString("correo","seba@hotmail.com");
-            String clave= prefs.getString("clave","123123");
-            vistaLogin.editTextMail.setText(mail);
-            vistaLogin.editTextClave.setText(clave);
+            View v = a.getLayoutInflater().inflate(R.layout.activity_menu, null);
+
+            Context con = v.getContext();
+            Intent i = new Intent(con, Menu.class);
+            con.startActivity(i);
+
         }
     }
 
